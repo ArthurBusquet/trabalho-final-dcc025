@@ -1,1 +1,4 @@
+Enum\TipoUsuarioEnum.class
 br\ufjf\dcc\dcc025\banco\Banco.class
+Entities\Usuario\Usuario.class
+Exceptions\DadoInseridoInvalidoException.class

@@ -1,12 +1,13 @@
 infrastructure\GerenciadorUsuarios$1.class
 domain\Entities\Usuario\Usuario.class
-application\Cases\RemoverUsuarioUseCase.class
 application\Exceptions\DadoInseridoInvalidoException.class
-application\Cases\ListarUsuariosUseCase.class
 domain\Exceptions\UsuarioNaoEncontradoException.class
 domain\Interfaces\UsuarioRepository.class
 infrastructure\GerenciadorUsuarios.class
-main\Banco.class
 domain\Enum\TipoUsuarioEnum.class
+application\Cases\RemoverUsuarioUseCase.class
+domain\Exceptions\UsuarioJaExisteException.class
+application\Cases\ListarUsuariosUseCase.class
+main\Banco.class
 application\Cases\EditarUsuarioUseCase.class
 application\Cases\AdicionarUsuarioUseCase.class

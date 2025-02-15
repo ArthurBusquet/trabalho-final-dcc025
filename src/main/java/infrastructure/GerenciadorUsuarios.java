@@ -92,4 +92,10 @@ public class GerenciadorUsuarios implements UsuarioRepository
     {
         return usuarios;
     }
+    
+    @Override
+    public boolean existeUsuario(String cpf)
+    {
+        return usuarios.stream().anyMatch(u -> u.getCpf().equalsIgnoreCase(cpf));
+    }
 }

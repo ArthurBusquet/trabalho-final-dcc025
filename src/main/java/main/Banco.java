@@ -6,6 +6,7 @@ import application.Cases.ListarUsuariosUseCase;
 import application.Cases.RemoverUsuarioUseCase;
 import application.Exceptions.DadoInseridoInvalidoException;
 import domain.Enum.TipoUsuarioEnum;
+import domain.Exceptions.UsuarioJaExisteException;
 import infrastructure.GerenciadorUsuarios;
 
 public class Banco
@@ -21,17 +22,21 @@ public class Banco
             RemoverUsuarioUseCase remover = new RemoverUsuarioUseCase(repositorio);
             ListarUsuariosUseCase listar = new ListarUsuariosUseCase(repositorio);
 
-            adicionar.executar("14009246693", "1234567Isa", TipoUsuarioEnum.CLIENTE);
-            adicionar.executar("14009246690", "1234567Isa", TipoUsuarioEnum.CAIXA);
+            adicionar.executar("09090909091", "1234567Isa", TipoUsuarioEnum.CLIENTE);
+            adicionar.executar("09090909090", "1234567Isa", TipoUsuarioEnum.CAIXA);
 
             System.out.println("Usuários cadastrados:");
             listar.executar().forEach(u -> System.out.println(u.getCpf() + " - " + u.getTipoUsuario()));
 
-            editar.executar("14009246697", "1234567Is", TipoUsuarioEnum.CAIXA);
-            remover.executar("14009246693");
-
+            editar.executar("09090909091", "1234567Is", TipoUsuarioEnum.CAIXA);
+            remover.executar("09090909093");
+            remover.executar("09090909091");
             System.out.println("Após edição e remoção:");
             listar.executar().forEach(u -> System.out.println(u.getCpf() + " - " + u.getTipoUsuario()));           
+        }
+        catch(UsuarioJaExisteException e)
+        {
+            System.out.println(e.getMessage());
         }
         catch(DadoInseridoInvalidoException e)
         {

@@ -10,4 +10,5 @@ public interface UsuarioRepository
     void remover(String cpf);
     void editar(String cpf, String novaSenha, TipoUsuarioEnum tipo);
     List<Usuario> listarUsuarios();
+    boolean existeUsuario(String cpf);
 }

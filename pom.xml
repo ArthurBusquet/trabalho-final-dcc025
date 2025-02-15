@@ -8,7 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>23</maven.compiler.release>
-        <exec.mainClass>br.ufjf.dcc.dcc025.banco.Banco</exec.mainClass>
+        <exec.mainClass>main.Banco</exec.mainClass>
     </properties>
         <build>
             <pluginManagement>
@@ -25,7 +25,7 @@
                         <archive>
                             <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>br.ufjf.dcc.dcc025.banco.Banco</mainClass>
+                            <mainClass>main.Banco</mainClass>
                         </manifest>
                         </archive>
                     </configuration>

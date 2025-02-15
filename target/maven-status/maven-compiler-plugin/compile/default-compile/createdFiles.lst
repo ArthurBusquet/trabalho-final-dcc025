@@ -1,4 +1,5 @@
-Enum\TipoUsuarioEnum.class
-br\ufjf\dcc\dcc025\banco\Banco.class
-Entities\Usuario\Usuario.class
-Exceptions\DadoInseridoInvalidoException.class
+domain\Entities\Usuario\Usuario.class
+infrastructure\GerenciadorUsuarios.class
+main\Banco.class
+domain\Enum\TipoUsuarioEnum.class
+application\Exceptions\DadoInseridoInvalidoException.class

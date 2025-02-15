@@ -1,7 +1,7 @@
-package br.ufjf.dcc.dcc025.banco;
+package main;
 
-import Entities.Usuario.Usuario;
-import Exceptions.DadoInseridoInvalidoException;
+import domain.Entities.Usuario.Usuario;
+import application.Exceptions.DadoInseridoInvalidoException;
 
 public class Banco
 {
@@ -15,11 +15,11 @@ public class Banco
         }
         catch(DadoInseridoInvalidoException e)
         {
-            System.out.println(e.getMessage()); 
+            System.out.println(e.getMessage());
         }
         catch(Exception e)
         {
-            
+            System.out.println(e.getMessage());
         }
     }
 }

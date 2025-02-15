@@ -1,7 +1,7 @@
-package Entities.Usuario;
+package domain.Entities.Usuario;
 
-import Enum.TipoUsuarioEnum;
-import Exceptions.DadoInseridoInvalidoException;
+import domain.Enum.TipoUsuarioEnum;
+import application.Exceptions.DadoInseridoInvalidoException;
 
 public class Usuario 
 {
@@ -51,13 +51,9 @@ public class Usuario
         return cpfUsuario;
     }
 
-    protected String getSenha() 
-    {
-        return senhaUsuario;
-    }
-
     public TipoUsuarioEnum getTipoUsuario() 
     {
         return tipoUsuario;
-    }      
+    }
+    
 }

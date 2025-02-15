@@ -1,4 +1,4 @@
-package Exceptions;
+package application.Exceptions;
 
 public class DadoInseridoInvalidoException extends Exception
 {

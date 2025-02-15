@@ -1,5 +1,11 @@
 C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\domain\Entities\Usuario\Usuario.java
 C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\application\Exceptions\DadoInseridoInvalidoException.java
 C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\domain\Enum\TipoUsuarioEnum.java
+C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\domain\Interfaces\UsuarioRepository.java
+C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\application\Cases\EditarUsuarioUseCase.java
+C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\application\Cases\AdicionarUsuarioUseCase.java
 C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\infrastructure\GerenciadorUsuarios.java
+C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\application\Cases\RemoverUsuarioUseCase.java
+C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\application\Cases\ListarUsuariosUseCase.java
 C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\main\Banco.java
+C:\Users\isabe\Documents\NetBeansProjects\Banco\src\main\java\domain\Exceptions\UsuarioNaoEncontradoException.java

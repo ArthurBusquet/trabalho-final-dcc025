@@ -1,13 +1,13 @@
 package domain.Entities.Usuario;
 
-import domain.Enum.TipoUsuarioEnum;
 import application.Exceptions.DadoInseridoInvalidoException;
+import domain.Enum.TipoUsuarioEnum;
 
 public class Usuario 
 {
-    protected final String cpfUsuario;
-    protected final String senhaUsuario;
-    protected final TipoUsuarioEnum tipoUsuario;
+    protected String cpfUsuario;
+    protected String senhaUsuario;
+    protected TipoUsuarioEnum tipoUsuario;
     
     public Usuario(String cpf, String senha, TipoUsuarioEnum tipoUsuario) throws DadoInseridoInvalidoException 
     {
@@ -56,4 +56,18 @@ public class Usuario
         return tipoUsuario;
     }
     
+    public void setCpf(String cpf)
+    {
+        this.cpfUsuario = cpf;
+    }
+    
+    public void setSenha(String senha)
+    {
+        this.senhaUsuario = senha;
+    }
+    
+    public void setTipoUsuario(TipoUsuarioEnum tipo)
+    {
+        this.tipoUsuario = tipo;
+    }
 }

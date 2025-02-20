@@ -1,5 +1,7 @@
 package main;
 
+import javax.swing.*;
+
 import application.Cases.AdicionarUsuarioUseCase;
 import application.Cases.EditarUsuarioUseCase;
 import application.Cases.ListarUsuariosUseCase;
@@ -9,12 +11,16 @@ import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioJaExisteException;
 import infrastructure.GerenciadorUsuarios;
 
-public class Banco
-{
-    public static void main(String[] args) throws DadoInseridoInvalidoException
-    {
-        try
-        {
+import ui.Frames.TelaLogin;
+
+import ui.Enum.TipoTelaAutenticacaoEnum;
+
+public class Banco {
+
+    public static void main(String[] args) throws DadoInseridoInvalidoException {
+        SwingUtilities.invokeLater(() -> new TelaLogin(TipoTelaAutenticacaoEnum.LOGIN));
+
+        try {
             GerenciadorUsuarios repositorio = new GerenciadorUsuarios();
 
             AdicionarUsuarioUseCase adicionar = new AdicionarUsuarioUseCase(repositorio);
@@ -32,18 +38,12 @@ public class Banco
             remover.executar("09090909093");
             remover.executar("09090909091");
             System.out.println("Após edição e remoção:");
-            listar.executar().forEach(u -> System.out.println(u.getCpf() + " - " + u.getTipoUsuario()));           
-        }
-        catch(UsuarioJaExisteException e)
-        {
+            listar.executar().forEach(u -> System.out.println(u.getCpf() + " - " + u.getTipoUsuario()));
+        } catch (UsuarioJaExisteException e) {
             System.out.println(e.getMessage());
-        }
-        catch(DadoInseridoInvalidoException e)
-        {
+        } catch (DadoInseridoInvalidoException e) {
             System.out.println(e.getMessage());
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

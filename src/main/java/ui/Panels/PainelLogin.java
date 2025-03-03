@@ -1,17 +1,27 @@
 package ui.Panels;
 
+import domain.Entities.Usuarios.Usuario;
+import domain.Enum.TipoUsuarioEnum;
+import domain.Exceptions.UsuarioNaoEncontradoException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+import infrastructure.GerenciadorUsuarios;
+import ui.Frames.MenuOpcoesCliente;
+import ui.Frames.TelaLogin;
 import utils.ValidadorCPF;
 
 public class PainelLogin extends PainelAutenticacao {
 
     private JTextField campoCpf;
-
-    public PainelLogin() {
+    private final GerenciadorUsuarios gerenciadorUsuarios;
+    private final TelaLogin.LoginListener loginListener;
+    
+    public PainelLogin(GerenciadorUsuarios gerenciadorUsuarios, TelaLogin.LoginListener loginListener) {
         super();
+        this.gerenciadorUsuarios = gerenciadorUsuarios;
+        this.loginListener = loginListener;
+        
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         JLabel tituloCpf = new JLabel("CPF:");
@@ -25,11 +35,9 @@ public class PainelLogin extends PainelAutenticacao {
         gbc.gridwidth = 2;
         add(campoCpf, gbc);
 
-        campoCpf.addKeyListener(
-                new KeyAdapter() {
+        campoCpf.addKeyListener(new KeyAdapter() {
             @Override
-            public void keyReleased(KeyEvent e
-            ) {
+            public void keyReleased(KeyEvent e) {
                 campoCpf.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
                 mensagemErro.setText("");
             }
@@ -62,12 +70,12 @@ public class PainelLogin extends PainelAutenticacao {
         }
 
         if (!ValidadorCPF.cpfEhValido(cpf)) {
-            mensagemErro.setText("CPF invalido");
+            mensagemErro.setText("CPF inválido");
             campoCpf.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
             return;
         }
 
-        if (!cpf.equals("12345678900") || !senha.equals("senha123")) {
+        if (!gerenciadorUsuarios.validarLogin(cpf, senha)) {
             mensagemErro.setText("CPF ou senha incorretos.");
             campoCpf.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
             campoSenha.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
@@ -75,5 +83,16 @@ public class PainelLogin extends PainelAutenticacao {
         }
 
         JOptionPane.showMessageDialog(this, "Login bem-sucedido!");
+        SwingUtilities.getWindowAncestor(this).dispose(); // Fecha a tela de login
+        try
+        {
+            Usuario usuario = gerenciadorUsuarios.buscarUsuarioPorCpf(cpf);
+            if (usuario.getTipoUsuario() == TipoUsuarioEnum.CLIENTE) {
+                SwingUtilities.invokeLater(() -> new MenuOpcoesCliente().setVisible(true));
+            }
+        } catch (UsuarioNaoEncontradoException e) {
+            mensagemErro.setText("Usuário não encontrado.");
+            campoCpf.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+        }
     }
 }

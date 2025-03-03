@@ -3,7 +3,7 @@ package infrastructure;
 import application.Exceptions.DadoInseridoInvalidoException;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import domain.Entities.Usuario;
+import domain.Entities.Usuarios.Usuario;
 import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioNaoEncontradoException;
 import domain.Interfaces.UsuarioRepository;
@@ -43,7 +43,7 @@ public class GerenciadorUsuarios implements UsuarioRepository
         }
     }
 
-    private void salvarUsuarios()
+    public void salvarUsuarios()
     {
         try (Writer writer = new FileWriter(FILE_PATH)) 
         {
@@ -55,7 +55,6 @@ public class GerenciadorUsuarios implements UsuarioRepository
             System.out.println("Erro na hora de tentar salvar os usuários no arquivo JSON");
         }
     }
-
 
     @Override
     public void adicionar(Usuario usuario) 

@@ -1,7 +1,7 @@
 package application.Cases;
 
 import application.Exceptions.DadoInseridoInvalidoException;
-import domain.Entities.Usuario;
+import domain.Entities.Usuarios.Usuario;
 import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioJaExisteException;
 import domain.Interfaces.UsuarioRepository;

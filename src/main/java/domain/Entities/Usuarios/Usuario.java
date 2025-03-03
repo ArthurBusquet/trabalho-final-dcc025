@@ -1,7 +1,10 @@
-package domain.Entities;
+package domain.Entities.Usuarios;
 
 import application.Exceptions.DadoInseridoInvalidoException;
+import domain.Entities.Extrato;
 import domain.Enum.TipoUsuarioEnum;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Usuario 
@@ -9,8 +12,9 @@ public class Usuario
     protected String cpfUsuario;
     protected String senhaUsuario;
     protected TipoUsuarioEnum tipoUsuario;
-    protected UUID idConta;
+    private UUID idConta;
     protected double valorEmConta;
+    private List<Extrato> extratos;
     
     public Usuario(String cpf, String senha, TipoUsuarioEnum tipoUsuario, double valorEmConta) throws DadoInseridoInvalidoException 
     {
@@ -19,6 +23,7 @@ public class Usuario
         setTipoUsuario(tipoUsuario);
         setValorEmConta(valorEmConta);
         this.idConta = UUID.randomUUID();
+        this.extratos = new ArrayList<>();
     }
 
     public Usuario(String cpf, String senha, double valorEmConta) throws DadoInseridoInvalidoException 
@@ -28,6 +33,7 @@ public class Usuario
         this.tipoUsuario = TipoUsuarioEnum.CLIENTE;
         setValorEmConta(valorEmConta);
         this.idConta = UUID.randomUUID();
+        this.extratos = new ArrayList<>();
     }
 
     private static boolean cpfEhValido(String cpf) 
@@ -102,5 +108,22 @@ public class Usuario
         
         this.valorEmConta = valor;
     }
-
+    
+    public void adicionarExtrato(Extrato extrato)
+    {
+        extratos.add(extrato);
+    }
+    
+    public void consultarExtrato() 
+    {
+        for (Extrato e : extratos) 
+        {
+            System.out.println(e);
+        }
+    }
+    
+    public List<Extrato> getExtratos() 
+    {
+        return extratos;
+    }
 }

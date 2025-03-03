@@ -1,6 +1,6 @@
 package ui.Panels;
 
-import domain.Entities.Usuario;
+import domain.Entities.Usuarios.Usuario;
 import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioNaoEncontradoException;
 import javax.swing.*;

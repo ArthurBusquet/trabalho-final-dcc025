@@ -8,7 +8,7 @@ import application.Cases.ListarUsuariosUseCase;
 import application.Cases.RemoverUsuarioUseCase;
 import application.Controllers.MenuController;
 import application.Exceptions.DadoInseridoInvalidoException;
-import domain.Entities.Usuario;
+import domain.Entities.Usuarios.Usuario;
 import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioJaExisteException;
 import infrastructure.GerenciadorUsuarios;

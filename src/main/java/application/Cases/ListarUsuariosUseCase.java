@@ -1,6 +1,6 @@
 package application.Cases;
 
-import domain.Entities.Usuario;
+import domain.Entities.Usuarios.Usuario;
 import domain.Interfaces.UsuarioRepository;
 import java.util.List;
 

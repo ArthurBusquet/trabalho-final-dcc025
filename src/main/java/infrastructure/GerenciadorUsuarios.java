@@ -1,8 +1,9 @@
 package infrastructure;
 
+import application.Exceptions.DadoInseridoInvalidoException;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import domain.Entities.Usuario.Usuario;
+import domain.Entities.Usuario;
 import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioNaoEncontradoException;
 import domain.Interfaces.UsuarioRepository;
@@ -10,6 +11,8 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GerenciadorUsuarios implements UsuarioRepository 
 {
@@ -44,13 +47,15 @@ public class GerenciadorUsuarios implements UsuarioRepository
     {
         try (Writer writer = new FileWriter(FILE_PATH)) 
         {
-            gson.toJson(usuarios, writer);
+            Gson gsonPretty = new Gson().newBuilder().setPrettyPrinting().create();
+            gsonPretty.toJson(usuarios, writer);
         } 
         catch (IOException e) 
         {
             System.out.println("Erro na hora de tentar salvar os usuários no arquivo JSON");
         }
     }
+
 
     @Override
     public void adicionar(Usuario usuario) 
@@ -69,21 +74,27 @@ public class GerenciadorUsuarios implements UsuarioRepository
     @Override
     public void editar(String cpf, String novaSenha, TipoUsuarioEnum tipo) 
     {
-        boolean encontrado = false;
-        for (Usuario u : usuarios) 
+        try
         {
-            if (u.getCpf().equals(cpf)) 
+            boolean encontrado = false;
+            for (Usuario u : usuarios) 
             {
-                u.setSenha(novaSenha);
-                u.setTipoUsuario(tipo);
-                salvarUsuarios();
-                encontrado = true;
-                break;
+                if (u.getCpf().equals(cpf)) 
+                {
+                    u.setSenha(novaSenha);
+                    u.setTipoUsuario(tipo);
+                    salvarUsuarios();
+                    encontrado = true;
+                    break;
+                }
             }
-        }
-        if (!encontrado)
+            if (!encontrado)
+            {
+                throw new UsuarioNaoEncontradoException(cpf);
+            }            
+        }catch(DadoInseridoInvalidoException e)
         {
-            throw new UsuarioNaoEncontradoException(cpf);
+            System.out.println(e.getMessage());
         }
     }
 
@@ -97,5 +108,25 @@ public class GerenciadorUsuarios implements UsuarioRepository
     public boolean existeUsuario(String cpf)
     {
         return usuarios.stream().anyMatch(u -> u.getCpf().equalsIgnoreCase(cpf));
+    }   
+    
+    public boolean validarLogin(String cpf, String senha) 
+    {
+        for (Usuario usuario : usuarios)
+        {
+            if (usuario.getCpf().equals(cpf) && usuario.getSenha().equals(senha)) 
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Usuario buscarUsuarioPorCpf(String cpf) throws UsuarioNaoEncontradoException 
+    {
+        return usuarios.stream()
+                .filter(u -> u.getCpf().equals(cpf))
+                .findFirst()
+                .orElseThrow(() -> new UsuarioNaoEncontradoException(cpf));
     }
 }

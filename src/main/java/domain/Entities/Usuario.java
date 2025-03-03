@@ -1,30 +1,33 @@
-package domain.Entities.Usuario;
+package domain.Entities;
 
 import application.Exceptions.DadoInseridoInvalidoException;
 import domain.Enum.TipoUsuarioEnum;
+import java.util.UUID;
 
 public class Usuario 
 {
     protected String cpfUsuario;
     protected String senhaUsuario;
     protected TipoUsuarioEnum tipoUsuario;
+    protected UUID idConta;
+    protected double valorEmConta;
     
-    public Usuario(String cpf, String senha, TipoUsuarioEnum tipoUsuario) throws DadoInseridoInvalidoException 
+    public Usuario(String cpf, String senha, TipoUsuarioEnum tipoUsuario, double valorEmConta) throws DadoInseridoInvalidoException 
     {
-        if (!cpfEhValido(cpf))
-            throw new DadoInseridoInvalidoException("CPF");
-        
-        if (!senhaEhValida(senha))
-            throw new DadoInseridoInvalidoException("Senha");
-        
-        this.cpfUsuario = cpf;
-        this.senhaUsuario = senha;
-        this.tipoUsuario = tipoUsuario;
+        setCpf(cpf);
+        setSenha(senha);
+        setTipoUsuario(tipoUsuario);
+        setValorEmConta(valorEmConta);
+        this.idConta = UUID.randomUUID();
     }
 
-    public Usuario(String cpf, String senha) throws DadoInseridoInvalidoException 
+    public Usuario(String cpf, String senha, double valorEmConta) throws DadoInseridoInvalidoException 
     {
-        this(cpf, senha, TipoUsuarioEnum.CLIENTE);
+        setCpf(cpf);
+        setSenha(senha);
+        this.tipoUsuario = TipoUsuarioEnum.CLIENTE;
+        setValorEmConta(valorEmConta);
+        this.idConta = UUID.randomUUID();
     }
 
     private static boolean cpfEhValido(String cpf) 
@@ -56,13 +59,24 @@ public class Usuario
         return tipoUsuario;
     }
     
-    public void setCpf(String cpf)
+    public void setCpf(String cpf) throws DadoInseridoInvalidoException
     {
+        if (!cpfEhValido(cpf))
+            throw new DadoInseridoInvalidoException("CPF");
+
         this.cpfUsuario = cpf;
     }
     
-    public void setSenha(String senha)
+    public String getSenha()
     {
+        return senhaUsuario;
+    }
+    
+    public void setSenha(String senha) throws DadoInseridoInvalidoException
+    {
+        if (!senhaEhValida(senha))
+            throw new DadoInseridoInvalidoException("Senha");
+        
         this.senhaUsuario = senha;
     }
     
@@ -70,4 +84,23 @@ public class Usuario
     {
         this.tipoUsuario = tipo;
     }
+    
+    public UUID getIdConta() 
+    {
+        return idConta;
+    }
+
+    public double getValorEmConta() 
+    {
+        return valorEmConta;
+    }
+
+    public void setValorEmConta(double valor) throws DadoInseridoInvalidoException 
+    {
+        if (valor < 0)
+            throw new DadoInseridoInvalidoException("Valor");
+        
+        this.valorEmConta = valor;
+    }
+
 }

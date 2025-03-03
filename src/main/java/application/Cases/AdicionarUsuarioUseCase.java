@@ -1,7 +1,7 @@
 package application.Cases;
 
 import application.Exceptions.DadoInseridoInvalidoException;
-import domain.Entities.Usuario.Usuario;
+import domain.Entities.Usuario;
 import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioJaExisteException;
 import domain.Interfaces.UsuarioRepository;
@@ -15,7 +15,7 @@ public class AdicionarUsuarioUseCase
         this.usuarioRepository = usuarioRepository;
     }
 
-    public void executar(String cpf, String senha, TipoUsuarioEnum tipo) throws DadoInseridoInvalidoException 
+    public void executar(String cpf, String senha, TipoUsuarioEnum tipo, double valorEmConta) throws DadoInseridoInvalidoException 
     {
         if (cpf == null || cpf.isBlank())         
             throw new DadoInseridoInvalidoException("CPF");
@@ -29,7 +29,7 @@ public class AdicionarUsuarioUseCase
         if (usuarioRepository.existeUsuario(cpf))       
             throw new UsuarioJaExisteException(cpf);
         
-        Usuario novoUsuario = new Usuario(cpf, senha, tipo);
+        Usuario novoUsuario = new Usuario(cpf, senha, tipo, valorEmConta);
         usuarioRepository.adicionar(novoUsuario);
     }
 }

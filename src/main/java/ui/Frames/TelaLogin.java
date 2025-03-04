@@ -4,6 +4,8 @@ import infrastructure.GerenciadorUsuarios;
 import java.awt.*;
 import javax.swing.*;
 
+import ui.Controllers.GerenciadorTela;
+
 import ui.Panels.PainelAutenticacao;
 import ui.Panels.PainelLogin;
 import ui.Panels.PainelConfirmacaoSenha;
@@ -17,22 +19,21 @@ public class TelaLogin extends JFrame {
 
     private final PainelAutenticacao painelAutenticacao;
 
-    public interface LoginListener {
-        void onLogin(Usuario usuario);
-    }
+    protected GerenciadorTela controlador;
 
-    public TelaLogin(GerenciadorUsuarios gerenciador, TipoTelaAutenticacaoEnum tipo, LoginListener loginListener) {
+    public TelaLogin(GerenciadorUsuarios gerenciadorUsuarios, GerenciadorTela controlador, TipoTelaAutenticacaoEnum tipo) {
+        this.controlador = controlador;
         setTitle("Tela de Login");
-        setSize(400, 400);
+        setSize(1800, 1800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         getContentPane().setBackground(new Color(255, 253, 248));
         setLayout(new BorderLayout());
 
         if (tipo == TipoTelaAutenticacaoEnum.LOGIN) {
-            painelAutenticacao = new PainelLogin(gerenciador, loginListener); // Passa o callback
+            painelAutenticacao = new PainelLogin(gerenciadorUsuarios, controlador);
         } else {
-            painelAutenticacao = new PainelConfirmacaoSenha();
+            painelAutenticacao = new PainelConfirmacaoSenha(controlador);
         }
 
         add(new Centralizador(painelAutenticacao), BorderLayout.CENTER);

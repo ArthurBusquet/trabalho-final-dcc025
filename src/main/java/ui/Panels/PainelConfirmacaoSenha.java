@@ -2,11 +2,12 @@ package ui.Panels;
 
 import java.awt.Color;
 import javax.swing.*;
+import ui.Controllers.GerenciadorTela;
 
 public class PainelConfirmacaoSenha extends PainelAutenticacao {
 
-    public PainelConfirmacaoSenha() {
-        super();
+    public PainelConfirmacaoSenha(GerenciadorTela controlador) {
+        super(controlador);
     }
 
     @Override

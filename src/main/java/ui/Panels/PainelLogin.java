@@ -6,22 +6,20 @@ import domain.Exceptions.UsuarioNaoEncontradoException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
+import ui.Controllers.GerenciadorTela;
 import infrastructure.GerenciadorUsuarios;
-import ui.Frames.MenuOpcoesCliente;
-import ui.Frames.TelaLogin;
+
 import utils.ValidadorCPF;
 
 public class PainelLogin extends PainelAutenticacao {
 
     private JTextField campoCpf;
     private final GerenciadorUsuarios gerenciadorUsuarios;
-    private final TelaLogin.LoginListener loginListener;
-    
-    public PainelLogin(GerenciadorUsuarios gerenciadorUsuarios, TelaLogin.LoginListener loginListener) {
-        super();
+
+    public PainelLogin(GerenciadorUsuarios gerenciadorUsuarios, GerenciadorTela controlador) {
+        super(controlador);
         this.gerenciadorUsuarios = gerenciadorUsuarios;
-        this.loginListener = loginListener;
-        
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         JLabel tituloCpf = new JLabel("CPF:");
@@ -88,7 +86,7 @@ public class PainelLogin extends PainelAutenticacao {
         {
             Usuario usuario = gerenciadorUsuarios.buscarUsuarioPorCpf(cpf);
             if (usuario.getTipoUsuario() == TipoUsuarioEnum.CLIENTE) {
-                SwingUtilities.invokeLater(() -> new MenuOpcoesCliente().setVisible(true));
+                controlador.mostrarTelaPrincipal(TipoUsuarioEnum.CLIENTE);
             }
         } catch (UsuarioNaoEncontradoException e) {
             mensagemErro.setText("Usuário não encontrado.");

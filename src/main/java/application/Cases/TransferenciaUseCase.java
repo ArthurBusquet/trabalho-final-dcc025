@@ -43,7 +43,8 @@ public class TransferenciaUseCase
             
             Extrato extratoOrigem = new Extrato(new Date(), "TRANSFERÊNCIA SAÍDA", valorParaTransferir, usuarioOrigem.getValorEmConta(), usuarioOrigem.getIdConta(), idContaDestino);
             Extrato extratoDestino = new Extrato(new Date(), "TRANSFERÊNCIA ENTRADA", valorParaTransferir, usuarioDestino.getValorEmConta(), usuarioOrigem.getIdConta(), idContaDestino);
-            
+            System.out.println("Teste origem" + usuarioOrigem.getCpf());
+            System.out.println("Teste destino" + usuarioDestino.getCpf());
             usuarioOrigem.adicionarExtrato(extratoOrigem);
             usuarioDestino.adicionarExtrato(extratoDestino);
             

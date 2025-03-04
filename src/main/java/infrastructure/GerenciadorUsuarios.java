@@ -112,7 +112,7 @@ public class GerenciadorUsuarios implements UsuarioRepository
     public boolean validarLogin(String cpf, String senha) 
     {
         for (Usuario usuario : usuarios)
-        {
+        {   
             if (usuario.getCpf().equals(cpf) && usuario.getSenha().equals(senha)) 
             {
                 return true;

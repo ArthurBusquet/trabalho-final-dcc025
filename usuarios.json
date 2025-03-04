@@ -1,1 +1,16 @@
-[{"cpfUsuario":"14009246693","senhaUsuario":"1234567Isa","tipoUsuario":"CLIENTE"},{"cpfUsuario":"14009246690","senhaUsuario":"1234567Isa","tipoUsuario":"CAIXA"},{"cpfUsuario":"14009246693","senhaUsuario":"1234567Isa","tipoUsuario":"CLIENTE"},{"cpfUsuario":"14009246690","senhaUsuario":"1234567Isa","tipoUsuario":"CAIXA"},{"cpfUsuario":"14009246693","senhaUsuario":"1234567Isa","tipoUsuario":"CLIENTE"},{"cpfUsuario":"14009246690","senhaUsuario":"1234567Isa","tipoUsuario":"CAIXA"},{"cpfUsuario":"09090909090","senhaUsuario":"1234567Isa","tipoUsuario":"CAIXA"},{"cpfUsuario":"09090909091","senhaUsuario":"1234567Isa","tipoUsuario":"CLIENTE"}]
+[
+  {
+    "cpfUsuario": "09090909091",
+    "senhaUsuario": "1234567Isa",
+    "tipoUsuario": "CLIENTE",
+    "idConta": "94294b43-a660-4441-a403-d85080805d50",
+    "valorEmConta": 1500.0
+  },
+  {
+    "cpfUsuario": "09090909090",
+    "senhaUsuario": "1234567Isa",
+    "tipoUsuario": "CAIXA",
+    "idConta": "fd237648-24c3-4f76-939d-6a62a430ea2d",
+    "valorEmConta": 17.5
+  }
+]

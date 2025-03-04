@@ -1,6 +1,6 @@
 package domain.Interfaces;
 
-import domain.Entities.Usuario.Usuario;
+import domain.Entities.Usuarios.Usuario;
 import domain.Enum.TipoUsuarioEnum;
 import java.util.List;
 

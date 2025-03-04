@@ -32,3 +32,5 @@ ui\Panels\PainelAutenticacao.class
 ui\Panels\PainelAutenticacao$1.class
 utils\ValidadorCPF.class
 application\Cases\AdicionarUsuarioUseCase.class
+domain\Entities\Usuario.class
+application\Controllers\MenuController$1.class

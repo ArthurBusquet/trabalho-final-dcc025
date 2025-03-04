@@ -6,15 +6,18 @@ import java.awt.*;
 import java.awt.event.*;
 
 import ui.Controllers.GerenciadorTela;
+import infrastructure.GerenciadorUsuarios;
 
 import utils.ValidadorCPF;
 
 public class PainelLogin extends PainelAutenticacao {
 
     private JTextField campoCpf;
+    private final GerenciadorUsuarios gerenciadorUsuarios;
 
     public PainelLogin(GerenciadorTela controlador) {
         super(controlador);
+        this.gerenciadorUsuarios = gerenciadorUsuarios;
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         JLabel tituloCpf = new JLabel("CPF:");
@@ -28,11 +31,9 @@ public class PainelLogin extends PainelAutenticacao {
         gbc.gridwidth = 2;
         add(campoCpf, gbc);
 
-        campoCpf.addKeyListener(
-                new KeyAdapter() {
+        campoCpf.addKeyListener(new KeyAdapter() {
             @Override
-            public void keyReleased(KeyEvent e
-            ) {
+            public void keyReleased(KeyEvent e) {
                 campoCpf.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
                 mensagemErro.setText("");
             }
@@ -65,18 +66,29 @@ public class PainelLogin extends PainelAutenticacao {
         }
 
         if (!ValidadorCPF.cpfEhValido(cpf)) {
-            mensagemErro.setText("CPF invalido");
+            mensagemErro.setText("CPF inválido");
             campoCpf.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
             return;
         }
 
-        if (!cpf.equals("12345678900") || !senha.equals("senha123")) {
+        if (!gerenciadorUsuarios.validarLogin(cpf, senha)) {
             mensagemErro.setText("CPF ou senha incorretos.");
             campoCpf.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
             campoSenha.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
             return;
         }
 
-        controlador.mostrarTelaPrincipal(TipoUsuarioEnum.CLIENTE);
+        JOptionPane.showMessageDialog(this, "Login bem-sucedido!");
+        SwingUtilities.getWindowAncestor(this).dispose(); // Fecha a tela de login
+        try
+        {
+            Usuario usuario = gerenciadorUsuarios.buscarUsuarioPorCpf(cpf);
+            if (usuario.getTipoUsuario() == TipoUsuarioEnum.CLIENTE) {
+                controlador.mostrarTelaPrincipal(TipoUsuarioEnum.CLIENTE);
+            }
+        } catch (UsuarioNaoEncontradoException e) {
+            mensagemErro.setText("Usuário não encontrado.");
+            campoCpf.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+        }
     }
 }

@@ -1,5 +1,6 @@
 package ui.Frames;
 
+import infrastructure.GerenciadorUsuarios;
 import java.awt.*;
 import javax.swing.*;
 
@@ -10,6 +11,7 @@ import ui.Panels.PainelLogin;
 import ui.Panels.PainelConfirmacaoSenha;
 
 import ui.Enum.TipoTelaAutenticacaoEnum;
+import domain.Entities.Usuarios.Usuario;
 
 import utils.Centralizador;
 

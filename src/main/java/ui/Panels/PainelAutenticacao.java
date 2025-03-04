@@ -20,7 +20,7 @@ public abstract class PainelAutenticacao extends JPanel implements ActionListene
 
     public PainelAutenticacao(GerenciadorTela controlador) {
         this.controlador = controlador;
-        
+
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -33,6 +33,8 @@ public abstract class PainelAutenticacao extends JPanel implements ActionListene
         add(tituloSenha, gbc);
 
         campoSenha = new JPasswordField(20);
+        campoSenha.setPreferredSize(new Dimension(400, 30));
+        campoSenha.setForeground(Color.GRAY);
         gbc.gridx = 1;
         gbc.gridy = 2;
         gbc.gridwidth = 2;

@@ -11,20 +11,21 @@ import ui.Panels.PainelLogin;
 import ui.Panels.PainelConfirmacaoSenha;
 
 import ui.Enum.TipoTelaAutenticacaoEnum;
-import domain.Entities.Usuarios.Usuario;
 
 import utils.Centralizador;
 
 public class TelaLogin extends JFrame {
 
     private final PainelAutenticacao painelAutenticacao;
-
     protected GerenciadorTela controlador;
+    private final GerenciadorUsuarios gerenciadorUsuarios;
 
-    public TelaLogin(GerenciadorUsuarios gerenciadorUsuarios, GerenciadorTela controlador, TipoTelaAutenticacaoEnum tipo) {
+    public TelaLogin(GerenciadorTela controlador, TipoTelaAutenticacaoEnum tipo) {
         this.controlador = controlador;
+        this.gerenciadorUsuarios = new GerenciadorUsuarios();
+
         setTitle("Tela de Login");
-        setSize(1800, 1800);
+        setSize(1366, 768);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         getContentPane().setBackground(new Color(255, 253, 248));

@@ -2,6 +2,7 @@ C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\mai
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PainelAcoes.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\infrastructure\GerenciadorUsuarios.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\ListarUsuariosUseCase.java
+C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PainelProcessamentoDeposito.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\EditarUsuarioUseCase.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PainelRendaVariavel.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Entities\Usuarios\Caixa.java
@@ -10,7 +11,9 @@ C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\mai
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Controllers\GerenciadorPainel.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Frames\MenuOpcoes.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Controllers\GerenciadorTela.java
+C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PainelAtendimentoSaque.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\RemoverUsuarioUseCase.java
+C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Controllers\SessaoUsuario.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PainelSolicitacaoCredito.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Exceptions\DadoInseridoInvalidoException.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Entities\Usuarios\Usuario.java
@@ -22,6 +25,7 @@ C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\mai
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Exceptions\UsuarioNaoEncontradoException.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Entities\Extrato.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Entities\Usuarios\Gerente.java
+C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\MenuLateralCaixa.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\AdicionarUsuarioUseCase.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\utils\Centralizador.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Exceptions\UsuarioJaExisteException.java

@@ -1,7 +1,7 @@
 package ui.Panels;
 
+import application.Controllers.SessaoUsuario;
 import domain.Entities.Usuarios.Usuario;
-import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioNaoEncontradoException;
 import javax.swing.*;
 import java.awt.*;
@@ -28,6 +28,8 @@ public class PainelLogin extends PainelAutenticacao {
         add(tituloCpf, gbc);
 
         campoCpf = new JTextField(20);
+        campoCpf.setPreferredSize(new Dimension(400, 30));
+        campoCpf.setForeground(Color.GRAY);
         gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.gridwidth = 2;
@@ -80,14 +82,14 @@ public class PainelLogin extends PainelAutenticacao {
             return;
         }
 
-        JOptionPane.showMessageDialog(this, "Login bem-sucedido!");
-        SwingUtilities.getWindowAncestor(this).dispose(); // Fecha a tela de login
-        try
-        {
+        try {
             Usuario usuario = gerenciadorUsuarios.buscarUsuarioPorCpf(cpf);
-            if (usuario.getTipoUsuario() == TipoUsuarioEnum.CLIENTE) {
-                controlador.mostrarTelaPrincipal(TipoUsuarioEnum.CLIENTE);
-            }
+
+            JOptionPane.showMessageDialog(this, "Login bem-sucedido!");
+            SwingUtilities.getWindowAncestor(this).dispose();
+            SessaoUsuario.getInstancia().setUsuarioLogado(usuario);
+            controlador.mostrarTelaPrincipal();
+
         } catch (UsuarioNaoEncontradoException e) {
             mensagemErro.setText("Usuário não encontrado.");
             campoCpf.setBorder(BorderFactory.createLineBorder(Color.RED, 2));

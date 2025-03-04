@@ -1,8 +1,11 @@
 package ui.Panels;
 
+import domain.Enum.TipoUsuarioEnum;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
+import ui.Controllers.GerenciadorTela;
 
 import utils.ValidadorCPF;
 
@@ -10,8 +13,8 @@ public class PainelLogin extends PainelAutenticacao {
 
     private JTextField campoCpf;
 
-    public PainelLogin() {
-        super();
+    public PainelLogin(GerenciadorTela controlador) {
+        super(controlador);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         JLabel tituloCpf = new JLabel("CPF:");
@@ -74,6 +77,6 @@ public class PainelLogin extends PainelAutenticacao {
             return;
         }
 
-        JOptionPane.showMessageDialog(this, "Login bem-sucedido!");
+        controlador.mostrarTelaPrincipal(TipoUsuarioEnum.CLIENTE);
     }
 }

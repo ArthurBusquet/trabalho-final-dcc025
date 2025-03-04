@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import ui.Controllers.GerenciadorTela;
+
 public abstract class PainelAutenticacao extends JPanel implements ActionListener {
 
     protected JPasswordField campoSenha;
@@ -14,8 +16,11 @@ public abstract class PainelAutenticacao extends JPanel implements ActionListene
     protected JButton botaoAplicar, botaoLimpar;
     protected JLabel messageLabel;
     protected GridBagConstraints gbc;
+    protected GerenciadorTela controlador;
 
-    public PainelAutenticacao() {
+    public PainelAutenticacao(GerenciadorTela controlador) {
+        this.controlador = controlador;
+        
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);

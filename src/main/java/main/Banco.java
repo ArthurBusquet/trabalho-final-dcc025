@@ -1,7 +1,5 @@
 package main;
 
-import javax.swing.*;
-
 import application.Cases.AdicionarUsuarioUseCase;
 import application.Cases.EditarUsuarioUseCase;
 import application.Cases.ListarUsuariosUseCase;
@@ -10,15 +8,17 @@ import application.Exceptions.DadoInseridoInvalidoException;
 import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioJaExisteException;
 import infrastructure.GerenciadorUsuarios;
-
-import ui.Frames.TelaLogin;
-
-import ui.Enum.TipoTelaAutenticacaoEnum;
+import ui.Controllers.GerenciadorTela;
 
 public class Banco {
 
     public static void main(String[] args) throws DadoInseridoInvalidoException {
-        SwingUtilities.invokeLater(() -> new TelaLogin(TipoTelaAutenticacaoEnum.LOGIN));
+//        SwingUtilities.invokeLater(() -> new TelaLogin(TipoTelaAutenticacaoEnum.LOGIN));
+
+        GerenciadorTela controlador = new GerenciadorTela();
+
+        // Inicia o sistema com a tela de login
+        controlador.mostrarTelaLogin();
 
         try {
             GerenciadorUsuarios repositorio = new GerenciadorUsuarios();

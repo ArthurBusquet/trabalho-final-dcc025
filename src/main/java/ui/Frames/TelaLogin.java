@@ -21,7 +21,7 @@ public class TelaLogin extends JFrame {
 
     protected GerenciadorTela controlador;
 
-    public TelaLogin(GerenciadorTela controlador, TipoTelaAutenticacaoEnum tipo) {
+    public TelaLogin(GerenciadorUsuarios gerenciadorUsuarios, GerenciadorTela controlador, TipoTelaAutenticacaoEnum tipo) {
         this.controlador = controlador;
         setTitle("Tela de Login");
         setSize(1800, 1800);
@@ -31,7 +31,7 @@ public class TelaLogin extends JFrame {
         setLayout(new BorderLayout());
 
         if (tipo == TipoTelaAutenticacaoEnum.LOGIN) {
-            painelAutenticacao = new PainelLogin(controlador);
+            painelAutenticacao = new PainelLogin(gerenciadorUsuarios, controlador);
         } else {
             painelAutenticacao = new PainelConfirmacaoSenha(controlador);
         }

@@ -3,6 +3,7 @@ package ui.Controllers;
 import javax.swing.*;
 
 import domain.Enum.TipoUsuarioEnum;
+import infrastructure.GerenciadorUsuarios;
 import static ui.Enum.TipoTelaAutenticacaoEnum.*;
 
 import ui.Frames.TelaLogin;
@@ -16,7 +17,7 @@ public class GerenciadorTela {
         if (telaAtual != null) {
             telaAtual.dispose();
         }
-        telaAtual = new TelaLogin(this, LOGIN);
+        telaAtual = new TelaLogin(new GerenciadorUsuarios(), this, LOGIN);
         telaAtual.setVisible(true);
     }
 

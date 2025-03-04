@@ -1,6 +1,8 @@
 package ui.Panels;
 
+import domain.Entities.Usuarios.Usuario;
 import domain.Enum.TipoUsuarioEnum;
+import domain.Exceptions.UsuarioNaoEncontradoException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -15,7 +17,7 @@ public class PainelLogin extends PainelAutenticacao {
     private JTextField campoCpf;
     private final GerenciadorUsuarios gerenciadorUsuarios;
 
-    public PainelLogin(GerenciadorTela controlador) {
+    public PainelLogin(GerenciadorUsuarios gerenciadorUsuarios, GerenciadorTela controlador) {
         super(controlador);
         this.gerenciadorUsuarios = gerenciadorUsuarios;
         gbc.fill = GridBagConstraints.HORIZONTAL;

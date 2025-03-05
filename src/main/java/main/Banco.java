@@ -15,14 +15,14 @@ import ui.Controllers.GerenciadorTela;
 public class Banco {
 
     public static void main(String[] args) throws DadoInseridoInvalidoException {
-//        SwingUtilities.invokeLater(() -> new TelaLogin(TipoTelaAutenticacaoEnum.LOGIN));
-
-        GerenciadorTela controlador = new GerenciadorTela();
-
-        // Inicia o sistema com a tela de login
-        controlador.mostrarTelaLogin();
-
+        //SwingUtilities.invokeLater(() -> new TelaLogin(TipoTelaAutenticacaoEnum.LOGIN));
+        
         try {
+            GerenciadorTela controlador = new GerenciadorTela();
+
+            // Inicia o sistema com a tela de login
+            controlador.mostrarTelaLogin();
+      
             GerenciadorUsuarios repositorio = new GerenciadorUsuarios();
             AdicionarUsuarioUseCase adicionar = new AdicionarUsuarioUseCase(repositorio);
 

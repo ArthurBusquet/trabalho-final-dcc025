@@ -16,7 +16,8 @@ public class AgenciaDeInvestimento
 
     public boolean investirRendaFixa(Usuario usuario, double valorInvestido) throws DadoInseridoInvalidoException 
     {
-        if (usuario.getValorEmConta() < valorInvestido) {
+        if (usuario.getValorEmConta() < valorInvestido) 
+        {
             System.out.println("Saldo insuficiente para investimento.");
             return false;
         }

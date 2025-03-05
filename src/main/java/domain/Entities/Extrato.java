@@ -4,12 +4,12 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Extrato {
-    private Date dataTransacao;
-    private String tipoTransacao; // "DEPÓSITO", "SAQUE", "TRANSFERÊNCIA"
-    private double valorTransacao;
-    private double saldoAposTransacao;
-    private UUID contaOrigem;
-    private UUID contaDestino;
+    private final Date dataTransacao;
+    private final String tipoTransacao; // "DEPÓSITO", "SAQUE", "TRANSFERÊNCIA"
+    private final double valorTransacao;
+    private final double saldoAposTransacao;
+    private final UUID contaOrigem;
+    private final UUID contaDestino;
 
     public Extrato(Date dataTransacao, String tipoTransacao, double valorTransacao, double saldoAposTransacao, UUID contaOrigem, UUID contaDestino) 
     {

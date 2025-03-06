@@ -10,7 +10,7 @@ import java.util.List;
 public class GerenciadorTransferencias 
 {
     private final String arquivoTransferencias = "transferencias.json";
-    private List<SolicitarTransferencia> transferenciasPendentes;
+    private final List<SolicitarTransferencia> transferenciasPendentes;
 
     public GerenciadorTransferencias() 
     {

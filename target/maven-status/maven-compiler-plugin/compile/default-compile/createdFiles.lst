@@ -8,6 +8,7 @@ ui\Panels\PaineisAcoes\PainelSolicitacaoCredito.class
 ui\Panels\PainelCadastro.class
 application\Exceptions\DadoInseridoInvalidoException.class
 domain\Entities\Usuarios\Gerente.class
+application\Cases\Gerente\AvaliacaoCreditoUseCase.class
 utils\Centralizador.class
 infrastructure\RepositorioSolicitacoesCredito.class
 ui\Panels\PaineisAcoes\PainelAcoes.class
@@ -37,6 +38,7 @@ ui\Panels\PainelAutenticacao$1.class
 utils\ValidadorCPF.class
 application\Cases\AdicionarUsuarioUseCase.class
 application\Cases\Caixa\RealizarSaqueUseCase.class
+application\Cases\Gerente\CadastroRendaVariavelUseCase.class
 application\Controllers\MenuController$1.class
 application\Controllers\SessaoUsuario.class
 ui\Panels\MenusLaterais\MenuLateralCaixa.class
@@ -65,6 +67,7 @@ application\Cases\Cliente\InvestirRendaFixaUseCase.class
 domain\Entities\SolicitarTransferencia.class
 domain\Entities\Extrato.class
 ui\Panels\PainelLogin$1.class
+infrastructure\Interfaces\InvestimentosRepository.class
 domain\Exceptions\UsuarioNaoEncontradoException.class
 infrastructure\GerenciadorUsuarios.class
 infrastructure\GerenciadorTransferencias$1.class

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class GerenciadorTransferencias {
 
     private final String arquivoTransferencias = "transferencias.json";
-    private List<SolicitarTransferencia> transferenciasPendentes;
+    private final List<SolicitarTransferencia> transferenciasPendentes;
 
     public GerenciadorTransferencias() {
         this.transferenciasPendentes = carregarTransferenciasPendentes();

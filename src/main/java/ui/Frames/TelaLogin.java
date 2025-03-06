@@ -4,25 +4,26 @@ import infrastructure.GerenciadorUsuarios;
 import java.awt.*;
 import javax.swing.*;
 
+import ui.Controllers.GerenciadorAutenticacao;
 import ui.Controllers.GerenciadorTela;
 
 import ui.Panels.PainelAutenticacao;
 import ui.Panels.PainelLogin;
-import ui.Panels.PainelConfirmacaoSenha;
-
-import ui.Enum.TipoTelaAutenticacaoEnum;
-
+import ui.Panels.PainelCadastro;
 import utils.Centralizador;
 
 public class TelaLogin extends JFrame {
 
-    private final PainelAutenticacao painelAutenticacao;
-    protected GerenciadorTela controlador;
-    private final GerenciadorUsuarios gerenciadorUsuarios;
+    private PainelAutenticacao painelAtual;
 
-    public TelaLogin(GerenciadorTela controlador, TipoTelaAutenticacaoEnum tipo) {
-        this.controlador = controlador;
+    private final GerenciadorTela controladorTelas;
+    private final GerenciadorUsuarios gerenciadorUsuarios;
+    private final GerenciadorAutenticacao gerenciadorAutenticacao;
+
+    public TelaLogin(GerenciadorTela controlador) {
+        this.controladorTelas = controlador;
         this.gerenciadorUsuarios = new GerenciadorUsuarios();
+        gerenciadorAutenticacao = new GerenciadorAutenticacao(this);
 
         setTitle("Tela de Login");
         setSize(1366, 768);
@@ -31,12 +32,30 @@ public class TelaLogin extends JFrame {
         getContentPane().setBackground(new Color(255, 253, 248));
         setLayout(new BorderLayout());
 
-        if (tipo == TipoTelaAutenticacaoEnum.LOGIN) {
-            painelAutenticacao = new PainelLogin(gerenciadorUsuarios, controlador);
-        } else {
-            painelAutenticacao = new PainelConfirmacaoSenha(controlador);
-        }
+        mostrarPainelLogin();
+    }
 
-        add(new Centralizador(painelAutenticacao), BorderLayout.CENTER);
+    public void mostrarPainelLogin() {
+        if (painelAtual != null) {
+            remove(painelAtual);
+            revalidate();
+            repaint();
+        }
+        painelAtual = new PainelLogin(gerenciadorUsuarios, controladorTelas, gerenciadorAutenticacao);
+        add(painelAtual, BorderLayout.CENTER);
+        revalidate();
+        repaint();
+    }
+
+    public void mostrarPainelCadastro() {
+        if (painelAtual != null) {
+            remove(painelAtual);
+            revalidate();
+            repaint();
+        }
+        painelAtual = new PainelCadastro(gerenciadorUsuarios, controladorTelas, gerenciadorAutenticacao);
+        add(painelAtual, BorderLayout.CENTER);
+        revalidate();
+        repaint();
     }
 }

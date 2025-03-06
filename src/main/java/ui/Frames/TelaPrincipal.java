@@ -1,17 +1,22 @@
 package ui.Frames;
 
+import application.Cases.Caixa.RealizarDepositoUseCase;
+import application.Cases.Cliente.SolicitarTransferenciaUseCase;
 import javax.swing.*;
 import java.awt.*;
 import domain.Enum.TipoUsuarioEnum;
+import infrastructure.GerenciadorTransferencias;
+import infrastructure.GerenciadorUsuarios;
 import ui.Controllers.GerenciadorTela;
 import ui.Controllers.GerenciadorPainel;
-import ui.Panels.MenuLateralCaixa;
-import ui.Panels.MenuLateralCliente;
-import ui.Panels.PainelRendaFixa;
-import ui.Panels.PainelRendaVariavel;
-import ui.Panels.PainelSaldoExtrato;
-import ui.Panels.PainelSolicitacaoCredito;
-import ui.Panels.PainelTransferencia;
+import ui.Panels.MenusLaterais.MenuLateralCaixa;
+import ui.Panels.MenusLaterais.MenuLateralCliente;
+import ui.Panels.PaineisAcoes.PainelProcessamentoDeposito;
+import ui.Panels.PaineisAcoes.PainelInvestirRendaFixa;
+import ui.Panels.PaineisAcoes.PainelInvestirRendaVariavel;
+import ui.Panels.PaineisAcoes.PainelSaldoExtrato;
+import ui.Panels.PaineisAcoes.PainelSolicitacaoCredito;
+import ui.Panels.PaineisAcoes.PainelSolicitacaoTransferencia;
 
 public class TelaPrincipal extends JFrame {
 
@@ -22,10 +27,17 @@ public class TelaPrincipal extends JFrame {
     private final CardLayout cardLayoutPaineisAcoes;
     private final GerenciadorPainel gerenciadorPainel;
 
+    protected GerenciadorUsuarios gerenciadorUsuarios;
+    protected GerenciadorTransferencias gerenciadorTransferencias;
+
     public TelaPrincipal(GerenciadorTela controlador, TipoUsuarioEnum tipoUsuario) {
         this.controlador = controlador;
-        setTitle("Sistema de Usuários");
-        setSize(800, 600);
+
+        gerenciadorUsuarios = new GerenciadorUsuarios();
+        gerenciadorTransferencias = new GerenciadorTransferencias();
+
+        setTitle("Sistema de Banco");
+        setSize(1366, 768);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -42,18 +54,25 @@ public class TelaPrincipal extends JFrame {
         painelMenusLaterais.add(new MenuLateralCliente(controlador, gerenciadorPainel), "MenuCliente");
         painelMenusLaterais.add(new MenuLateralCaixa(controlador, gerenciadorPainel), "MenuCaixa");
 
-        gerenciadorPainel.adicionarPainel("Transferencia", new PainelTransferencia());
+        SolicitarTransferenciaUseCase solicitarTransferenciaUseCase = new SolicitarTransferenciaUseCase(gerenciadorTransferencias);
+
+        gerenciadorPainel.adicionarPainel("SolicitacaoTransferencia", new PainelSolicitacaoTransferencia(solicitarTransferenciaUseCase));
+
         gerenciadorPainel.adicionarPainel("SaldoExtrato", new PainelSaldoExtrato());
-        gerenciadorPainel.adicionarPainel("RendaFixa", new PainelRendaFixa());
-        gerenciadorPainel.adicionarPainel("RendaVariavel", new PainelRendaVariavel());
+        gerenciadorPainel.adicionarPainel("InvestirRendaFixa", new PainelInvestirRendaFixa());
+        gerenciadorPainel.adicionarPainel("InvestirRendaVariavel", new PainelInvestirRendaVariavel());
         gerenciadorPainel.adicionarPainel("SolicitacaoCredito", new PainelSolicitacaoCredito());
-        
-        gerenciadorPainel.adicionarPainel("atendimentoSaque", new PainelSolicitacaoCredito());
+
+        RealizarDepositoUseCase realizarDepositoUseCase = new RealizarDepositoUseCase(gerenciadorUsuarios);
+
+        gerenciadorPainel.adicionarPainel("AtendimentoSaque", new PainelSolicitacaoCredito());
+        gerenciadorPainel.adicionarPainel("ProcessamentoDeposito", new PainelProcessamentoDeposito(realizarDepositoUseCase));
 
         setUsuarioLogado(tipoUsuario);
 
         add(painelMenusLaterais, BorderLayout.WEST);
         add(painelAcoes, BorderLayout.CENTER);
+
     }
 
     public void setUsuarioLogado(TipoUsuarioEnum tipoUsuario) {

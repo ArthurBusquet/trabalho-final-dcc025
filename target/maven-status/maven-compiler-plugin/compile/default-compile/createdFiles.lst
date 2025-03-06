@@ -1,32 +1,15 @@
 infrastructure\GerenciadorUsuarios$1.class
 domain\Entities\Usuarios\Cliente.class
 ui\Frames\MenuOpcoes.class
-<<<<<<< HEAD
-=======
 ui\Panels\PainelLogin$2.class
 ui\Panels\MenusLaterais\MenuLateral$1.class
 ui\Panels\PaineisAcoes\PainelProcessamentoDeposito.class
 ui\Panels\PaineisAcoes\PainelSolicitacaoCredito.class
 ui\Panels\PainelCadastro.class
->>>>>>> 787e6deb5df9db29b8781bcc017d6c5ded0ef6e1
 application\Exceptions\DadoInseridoInvalidoException.class
 domain\Entities\Usuarios\Gerente.class
 application\Cases\Gerente\AvaliacaoCreditoUseCase.class
 utils\Centralizador.class
-<<<<<<< HEAD
-ui\Panels\PainelSolicitacaoCredito.class
-application\Cases\Caixa\RealizarDepositoUseCase.class
-ui\Panels\PainelRendaFixa.class
-ui\Panels\PainelAcoes.class
-ui\Frames\TelaLogin.class
-infrastructure\Interfaces\SolicitacoesCreditoRepository.class
-ui\Controllers\GerenciadorTela.class
-application\Cases\Gerente\CadastroRendaFixaUseCase.class
-ui\Frames\MenuOpcoesCliente.class
-infrastructure\SolicitacoesCreditoRepositoryImpl.class
-ui\Controllers\GerenciadorPainel.class
-domain\Entities\RendaFixa.class
-=======
 infrastructure\RepositorioSolicitacoesCredito.class
 ui\Panels\PaineisAcoes\PainelAcoes.class
 application\Cases\Caixa\RealizarDepositoUseCase.class
@@ -39,7 +22,6 @@ ui\Controllers\GerenciadorPainel.class
 ui\Panels\PaineisAcoes\PainelProcessamentoDeposito$1.class
 ui\Controllers\GerenciadorAutenticacao.class
 ui\Models\TabelaExtratos.class
->>>>>>> 787e6deb5df9db29b8781bcc017d6c5ded0ef6e1
 application\Cases\Cliente\SolicitarCreditoUseCase.class
 ui\Frames\TelaPrincipal$1.class
 domain\Enum\TipoUsuarioEnum.class
@@ -63,16 +45,12 @@ ui\Panels\MenusLaterais\MenuLateralCaixa.class
 ui\Panels\PainelConfirmacaoSenha.class
 ui\Panels\PaineisAcoes\PainelAtendimentoSaque.class
 application\Cases\Cliente\SolicitarTransferenciaUseCase.class
-<<<<<<< HEAD
-infrastructure\SolicitacoesCreditoRepositoryImpl$1.class
-=======
 ui\Panels\MenusLaterais\MenuLateralCliente.class
 ui\Panels\PaineisAcoes\PainelSolicitacaoCredito$1.class
 ui\Panels\PaineisAcoes\PainelSolicitacaoTransferencia.class
 ui\Panels\PainelCadastro$2.class
 ui\Panels\PaineisAcoes\PainelSaldoExtrato$1.class
 ui\Panels\PaineisAcoes\PainelSolicitacaoTransferencia$1.class
->>>>>>> 787e6deb5df9db29b8781bcc017d6c5ded0ef6e1
 ui\Frames\TelaPrincipal.class
 domain\Interfaces\UsuarioRepository.class
 application\Cases\Cliente\InvestirRendaVariavelUseCase.class
@@ -84,12 +62,7 @@ infrastructure\GerenciadorTransferencias.class
 main\Banco.class
 domain\Entities\Usuarios\Usuario.class
 application\Cases\EditarUsuarioUseCase.class
-<<<<<<< HEAD
-domain\Entities\RendaVariavel.class
-ui\Panels\PainelAtendimentoSaque.class
-=======
 ui\Panels\PaineisAcoes\PainelSaldoExtrato.class
->>>>>>> 787e6deb5df9db29b8781bcc017d6c5ded0ef6e1
 application\Cases\Cliente\InvestirRendaFixaUseCase.class
 domain\Entities\SolicitarTransferencia.class
 domain\Entities\Extrato.class

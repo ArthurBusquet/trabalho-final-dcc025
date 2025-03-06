@@ -10,16 +10,17 @@ application\Exceptions\DadoInseridoInvalidoException.class
 domain\Entities\Usuarios\Gerente.class
 application\Cases\Gerente\AvaliacaoCreditoUseCase.class
 utils\Centralizador.class
-infrastructure\RepositorioSolicitacoesCredito.class
 ui\Panels\PaineisAcoes\PainelAcoes.class
 application\Cases\Caixa\RealizarDepositoUseCase.class
-infrastructure\RepositorioSolicitacoesCredito$1.class
 ui\Frames\TelaLogin.class
 infrastructure\Interfaces\SolicitacoesCreditoRepository.class
 ui\Controllers\GerenciadorTela.class
+application\Cases\Gerente\CadastroRendaFixaUseCase.class
 ui\Frames\MenuOpcoesCliente.class
+infrastructure\SolicitacoesCreditoRepositoryImpl.class
 ui\Controllers\GerenciadorPainel.class
 ui\Panels\PaineisAcoes\PainelProcessamentoDeposito$1.class
+domain\Entities\RendaFixa.class
 ui\Controllers\GerenciadorAutenticacao.class
 ui\Models\TabelaExtratos.class
 application\Cases\Cliente\SolicitarCreditoUseCase.class
@@ -45,6 +46,7 @@ ui\Panels\MenusLaterais\MenuLateralCaixa.class
 ui\Panels\PainelConfirmacaoSenha.class
 ui\Panels\PaineisAcoes\PainelAtendimentoSaque.class
 application\Cases\Cliente\SolicitarTransferenciaUseCase.class
+infrastructure\SolicitacoesCreditoRepositoryImpl$1.class
 ui\Panels\MenusLaterais\MenuLateralCliente.class
 ui\Panels\PaineisAcoes\PainelSolicitacaoCredito$1.class
 ui\Panels\PaineisAcoes\PainelSolicitacaoTransferencia.class
@@ -63,6 +65,7 @@ main\Banco.class
 domain\Entities\Usuarios\Usuario.class
 application\Cases\EditarUsuarioUseCase.class
 ui\Panels\PaineisAcoes\PainelSaldoExtrato.class
+domain\Entities\RendaVariavel.class
 application\Cases\Cliente\InvestirRendaFixaUseCase.class
 domain\Entities\SolicitarTransferencia.class
 domain\Entities\Extrato.class

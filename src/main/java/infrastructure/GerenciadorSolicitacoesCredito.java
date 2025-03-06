@@ -1,14 +1,14 @@
 package infrastructure;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import domain.Entities.SolicitacaoCredito;
 import infrastructure.Interfaces.SolicitacoesCreditoRepository;
-import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 
-class SolicitacoesCreditoRepositoryImpl implements SolicitacoesCreditoRepository 
+class GerenciadorSolicitacoesCredito implements SolicitacoesCreditoRepository 
 {
     private static final String FILE_PATH = "solicitacoes_credito.json";
     private final Gson gson = new Gson();

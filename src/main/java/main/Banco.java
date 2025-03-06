@@ -1,12 +1,7 @@
 package main;
 
 import application.Cases.AdicionarUsuarioUseCase;
-import application.Cases.EditarUsuarioUseCase;
-import application.Cases.ListarUsuariosUseCase;
-import application.Cases.RemoverUsuarioUseCase;
-import application.Controllers.MenuController;
 import application.Exceptions.DadoInseridoInvalidoException;
-import domain.Entities.Usuarios.Usuario;
 import domain.Enum.TipoUsuarioEnum;
 import domain.Exceptions.UsuarioJaExisteException;
 import infrastructure.GerenciadorUsuarios;
@@ -29,7 +24,7 @@ public class Banco {
             // Criar usuários para teste
             adicionar.executar("09090909091", "1234567Isa", TipoUsuarioEnum.CLIENTE, 1500);
             adicionar.executar("09090909090", "1234567Isa", TipoUsuarioEnum.CAIXA, 17.50);
-
+                
         } catch (UsuarioJaExisteException | DadoInseridoInvalidoException e) {
             System.out.println(e.getMessage());
         } catch (Exception e) {

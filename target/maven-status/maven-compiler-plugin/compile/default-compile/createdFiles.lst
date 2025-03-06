@@ -6,6 +6,7 @@ domain\Entities\Usuarios\Gerente.class
 utils\Centralizador.class
 infrastructure\RepositorioSolicitacoesCredito.class
 ui\Panels\PainelSolicitacaoCredito.class
+infrastructure\RepositorioSolicitacoesCredito$1.class
 ui\Panels\PainelRendaFixa.class
 ui\Panels\PainelAcoes.class
 ui\Frames\TelaLogin.class

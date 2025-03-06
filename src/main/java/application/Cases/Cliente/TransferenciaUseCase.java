@@ -1,4 +1,4 @@
-package application.Cases;
+package application.Cases.Cliente;
 
 import application.Exceptions.DadoInseridoInvalidoException;
 import domain.Entities.Extrato;
@@ -59,15 +59,5 @@ public class TransferenciaUseCase
             System.out.println("Usuário não encontrado: " + e.getMessage());
             return false;
         }
-    }
-    
-    public void consultarSaldoExtrato(Usuario usuario) 
-    {
-        System.out.println("Saldo atual: R$" + usuario.getValorEmConta());
-        System.out.println("Extrato:");
-        for (Extrato extrato : usuario.getExtratos())
-        {
-            System.out.println(extrato);
-        }
-    }
+    }  
 }

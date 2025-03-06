@@ -1,6 +1,6 @@
 package ui.Panels;
 
-import application.Cases.TransferenciaUseCase;
+import application.Cases.Cliente.TransferenciaUseCase;
 import application.Controllers.SessaoUsuario;
 import domain.Entities.Usuarios.Usuario;
 import infrastructure.GerenciadorUsuarios;

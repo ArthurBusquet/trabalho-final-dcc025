@@ -10,20 +10,18 @@ import infrastructure.GerenciadorUsuarios;
 
 import java.util.Date;
 
-public class AprovarTransferenciaUseCase 
-{
+public class AprovarTransferenciaUseCase {
+
     private final GerenciadorTransferencias gerenciadorTransferencias;
     private final GerenciadorUsuarios gerenciadorUsuarios;
 
-    public AprovarTransferenciaUseCase(GerenciadorTransferencias gerenciadorTransferencias, GerenciadorUsuarios gerenciadorUsuarios) 
-    {
+    public AprovarTransferenciaUseCase(GerenciadorTransferencias gerenciadorTransferencias, GerenciadorUsuarios gerenciadorUsuarios) {
         this.gerenciadorTransferencias = gerenciadorTransferencias;
         this.gerenciadorUsuarios = gerenciadorUsuarios;
     }
 
-    public boolean aprovarTransferencia(SolicitarTransferencia solicitacao) 
-            throws OperacaoInvalidaException, DadoInseridoInvalidoException 
-    {
+    public boolean aprovarTransferencia(SolicitarTransferencia solicitacao)
+            throws OperacaoInvalidaException, DadoInseridoInvalidoException {
         Usuario usuarioOrigem = gerenciadorUsuarios.carregarUsuarios().stream()
                 .filter(u -> u.getIdConta().equals(solicitacao.getIdContaOrigem()))
                 .findFirst()
@@ -34,8 +32,7 @@ public class AprovarTransferenciaUseCase
                 .findFirst()
                 .orElseThrow(() -> new OperacaoInvalidaException("Usuário destino não encontrado"));
 
-        if (usuarioOrigem.getValorEmConta() >= solicitacao.getValorTransferir())
-        {
+        if (usuarioOrigem.getValorEmConta() >= solicitacao.getValorTransferir()) {
             usuarioOrigem.setValorEmConta(usuarioOrigem.getValorEmConta() - solicitacao.getValorTransferir());
             usuarioDestino.setValorEmConta(usuarioDestino.getValorEmConta() + solicitacao.getValorTransferir());
 
@@ -48,12 +45,11 @@ public class AprovarTransferenciaUseCase
             solicitacao.aprovar();
 
             gerenciadorTransferencias.salvarTransferencias();
+            gerenciadorTransferencias.getTransferenciasPendentes().remove(solicitacao);
             gerenciadorUsuarios.salvarUsuarios();
 
             return true;
-        } 
-        else 
-        {
+        } else {
             throw new OperacaoInvalidaException("Saldo insuficiente para transferência.");
         }
     }

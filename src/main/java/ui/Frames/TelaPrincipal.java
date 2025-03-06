@@ -1,5 +1,6 @@
 package ui.Frames;
 
+import application.Cases.Caixa.AprovarTransferenciaUseCase;
 import application.Cases.Caixa.RealizarDepositoUseCase;
 import application.Cases.Cliente.SolicitarTransferenciaUseCase;
 import javax.swing.*;
@@ -14,6 +15,7 @@ import ui.Panels.MenusLaterais.MenuLateralCliente;
 import ui.Panels.PaineisAcoes.PainelProcessamentoDeposito;
 import ui.Panels.PaineisAcoes.PainelInvestirRendaFixa;
 import ui.Panels.PaineisAcoes.PainelInvestirRendaVariavel;
+import ui.Panels.PaineisAcoes.PainelRealizacaoTransferencia;
 import ui.Panels.PaineisAcoes.PainelSaldoExtrato;
 import ui.Panels.PaineisAcoes.PainelSolicitacaoCredito;
 import ui.Panels.PaineisAcoes.PainelSolicitacaoTransferencia;
@@ -57,7 +59,6 @@ public class TelaPrincipal extends JFrame {
         SolicitarTransferenciaUseCase solicitarTransferenciaUseCase = new SolicitarTransferenciaUseCase(gerenciadorTransferencias);
 
         gerenciadorPainel.adicionarPainel("SolicitacaoTransferencia", new PainelSolicitacaoTransferencia(solicitarTransferenciaUseCase));
-
         gerenciadorPainel.adicionarPainel("SaldoExtrato", new PainelSaldoExtrato());
         gerenciadorPainel.adicionarPainel("InvestirRendaFixa", new PainelInvestirRendaFixa());
         gerenciadorPainel.adicionarPainel("InvestirRendaVariavel", new PainelInvestirRendaVariavel());
@@ -67,6 +68,7 @@ public class TelaPrincipal extends JFrame {
 
         gerenciadorPainel.adicionarPainel("AtendimentoSaque", new PainelSolicitacaoCredito());
         gerenciadorPainel.adicionarPainel("ProcessamentoDeposito", new PainelProcessamentoDeposito(realizarDepositoUseCase));
+        gerenciadorPainel.adicionarPainel("AprovacaoTransferencia", new PainelRealizacaoTransferencia(gerenciadorTransferencias, gerenciadorUsuarios));
 
         setUsuarioLogado(tipoUsuario);
 

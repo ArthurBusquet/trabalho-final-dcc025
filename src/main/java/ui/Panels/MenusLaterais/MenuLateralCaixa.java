@@ -13,5 +13,6 @@ public class MenuLateralCaixa extends MenuLateral {
         
         adicionarBotao("Atendimento de saque", "AtendimentoSaque");
         adicionarBotao("Processamento de depósitos", "ProcessamentoDeposito");
+        adicionarBotao("Aprovar Transferencias", "AprovacaoTransferencia");
     }
 }

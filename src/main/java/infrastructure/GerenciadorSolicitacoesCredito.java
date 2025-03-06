@@ -10,12 +10,12 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class RepositorioSolicitacoesCredito implements SolicitacoesCreditoRepository 
+public class GerenciadorSolicitacoesCredito implements SolicitacoesCreditoRepository 
 {
     private static final String ARQUIVO_JSON = "solicitacoes_credito.json";
-    private List<SolicitacaoCredito> solicitacoes;
+    private final List<SolicitacaoCredito> solicitacoes;
 
-    public RepositorioSolicitacoesCredito() 
+    public GerenciadorSolicitacoesCredito() 
     {
         this.solicitacoes = carregarSolicitacoes();
     }

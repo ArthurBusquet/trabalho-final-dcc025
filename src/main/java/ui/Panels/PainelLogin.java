@@ -9,6 +9,7 @@ import java.awt.event.*;
 
 import ui.Controllers.GerenciadorTela;
 import infrastructure.GerenciadorUsuarios;
+import ui.Controllers.GerenciadorAutenticacao;
 
 import utils.ValidadorCPF;
 
@@ -17,8 +18,8 @@ public class PainelLogin extends PainelAutenticacao {
     private JTextField campoCpf;
     private final GerenciadorUsuarios gerenciadorUsuarios;
 
-    public PainelLogin(GerenciadorUsuarios gerenciadorUsuarios, GerenciadorTela controlador) {
-        super(controlador);
+    public PainelLogin(GerenciadorUsuarios gerenciadorUsuarios, GerenciadorTela controladorTelas, GerenciadorAutenticacao gerenciadorAutenticacao) {
+        super(controladorTelas);
         this.gerenciadorUsuarios = gerenciadorUsuarios;
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
@@ -42,6 +43,20 @@ public class PainelLogin extends PainelAutenticacao {
                 mensagemErro.setText("");
             }
         });
+
+        JLabel linkCadastro = new JLabel("<html><u>Não tem uma conta? Cadastre-se</u></html>");
+        linkCadastro.setForeground(Color.BLUE);
+        linkCadastro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        linkCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gerenciadorAutenticacao.mostrarTelaCadastro();
+            }
+        });
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        add(linkCadastro, gbc);
     }
 
     @Override

@@ -65,5 +65,21 @@
         "contaDestino": "fd237648-24c3-4f76-939d-6a62a430ea2d"
       }
     ]
+  },
+  {
+    "cpfUsuario": "09090909093",
+    "senhaUsuario": "1234567Isa",
+    "tipoUsuario": "CLIENTE",
+    "idConta": "8c45047e-6933-4b2a-b913-617657a6f55d",
+    "valorEmConta": 0.0,
+    "extratos": []
+  },
+  {
+    "cpfUsuario": "09090909094",
+    "senhaUsuario": "1234567Isa",
+    "tipoUsuario": "CAIXA",
+    "idConta": "ab04b1fe-7051-4d4d-aa74-e84565f78258",
+    "valorEmConta": 0.0,
+    "extratos": []
   }
 ]

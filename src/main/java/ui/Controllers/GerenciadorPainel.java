@@ -3,7 +3,7 @@ package ui.Controllers;
 import javax.swing.*;
 import java.awt.*;
 
-import ui.Panels.PainelAcoes;
+import ui.Panels.PaineisAcoes.PainelAcoes;
 
 public class GerenciadorPainel {
 

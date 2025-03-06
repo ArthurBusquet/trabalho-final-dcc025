@@ -4,8 +4,6 @@ import javax.swing.*;
 
 import application.Controllers.SessaoUsuario;
 
-import static ui.Enum.TipoTelaAutenticacaoEnum.*;
-
 import ui.Frames.TelaLogin;
 import ui.Frames.TelaPrincipal;
 
@@ -22,7 +20,8 @@ public class GerenciadorTela {
         if (telaAtual != null) {
             telaAtual.dispose();
         }
-        telaAtual = new TelaLogin(this, LOGIN);
+
+        telaAtual = new TelaLogin(this);
         telaAtual.setVisible(true);
     }
 

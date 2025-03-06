@@ -4,6 +4,7 @@ import domain.Entities.SolicitarTransferencia;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorTransferencias 
@@ -39,7 +40,7 @@ public class GerenciadorTransferencias
         }
     }
 
-    private List<SolicitarTransferencia> carregarTransferencias() 
+    private List<SolicitarTransferencia> carregarTransferencias()
     {
         try (Reader reader = new FileReader(arquivoTransferencias)) 
         {
@@ -48,7 +49,7 @@ public class GerenciadorTransferencias
         } 
         catch (IOException e) 
         {
-            return null;
+            return new ArrayList<>();
         }
     }
 }

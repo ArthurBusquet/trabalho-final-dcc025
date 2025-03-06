@@ -22,10 +22,8 @@ public class SolicitarTransferenciaUseCase
             throw new DadoInseridoInvalidoException("Saldo insuficiente.");
         }
         
-        // Cria uma nova solicitação de transferência e armazena no JSON
         SolicitarTransferencia solicitacao = new SolicitarTransferencia(usuarioOrigem.getIdConta(), idContaDestino, valorParaTransferir);
         gerenciadorTransferencias.adicionarSolicitacao(solicitacao);
-        
         return true;
     }  
 }

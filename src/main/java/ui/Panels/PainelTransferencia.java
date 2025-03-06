@@ -1,9 +1,9 @@
 package ui.Panels;
 
-import application.Cases.Cliente.TransferenciaUseCase;
+import application.Cases.Cliente.SolicitarTransferenciaUseCase;
 import application.Controllers.SessaoUsuario;
 import domain.Entities.Usuarios.Usuario;
-import infrastructure.GerenciadorUsuarios;
+import infrastructure.GerenciadorTransferencias;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,11 +18,11 @@ public class PainelTransferencia extends PainelAcoes {
     private JPasswordField campoSenha;
     private JButton botaoConfirmar;
 
-    private final TransferenciaUseCase transferenciaUseCase;
+    private final SolicitarTransferenciaUseCase transferenciaUseCase;
 
     public PainelTransferencia() {
-        GerenciadorUsuarios gerenciador = new GerenciadorUsuarios();
-        this.transferenciaUseCase = new TransferenciaUseCase(gerenciador);
+        GerenciadorTransferencias gerenciadorTransferencias = new GerenciadorTransferencias();
+        this.transferenciaUseCase = new SolicitarTransferenciaUseCase(gerenciadorTransferencias);
 
         setLayout(new GridBagLayout());
         setBackground(Color.WHITE);
@@ -135,7 +135,7 @@ public class PainelTransferencia extends PainelAcoes {
         }
 
         try {
-            boolean sucesso = transferenciaUseCase.realizarTransferencia(usuario, idContaDestino, valor);
+            boolean sucesso = transferenciaUseCase.solicitarTransferencia(usuario, idContaDestino, valor);
 
             if (sucesso) {
                 JOptionPane.showMessageDialog(this, "Transferência realizada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);

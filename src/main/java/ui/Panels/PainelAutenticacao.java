@@ -18,8 +18,8 @@ public abstract class PainelAutenticacao extends JPanel implements ActionListene
     protected GridBagConstraints gbc;
     protected GerenciadorTela controlador;
 
-    public PainelAutenticacao(GerenciadorTela controlador) {
-        this.controlador = controlador;
+    public PainelAutenticacao(GerenciadorTela controladorTelas) {
+        this.controlador = controladorTelas;
 
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
@@ -51,14 +51,14 @@ public abstract class PainelAutenticacao extends JPanel implements ActionListene
 
         botaoAplicar = new JButton("Aplicar");
         gbc.gridx = 0;
-        gbc.gridy = 3;
+        gbc.gridy = 4;
         gbc.gridwidth = 1;
         add(botaoAplicar, gbc);
         botaoAplicar.addActionListener(this);
 
         botaoLimpar = new JButton("Limpar");
         gbc.gridx = 1;
-        gbc.gridy = 3;
+        gbc.gridy = 4;
         gbc.gridwidth = 1;
         add(botaoLimpar, gbc);
         botaoLimpar.addActionListener(this);
@@ -66,8 +66,8 @@ public abstract class PainelAutenticacao extends JPanel implements ActionListene
         mensagemErro = new JLabel();
         mensagemErro.setForeground(Color.RED);
         gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbc.gridwidth = 3;
+        gbc.gridy = 5;
+        gbc.gridwidth = 2;
         add(mensagemErro, gbc);
     }
 

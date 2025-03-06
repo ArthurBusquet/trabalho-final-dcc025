@@ -4,16 +4,42 @@
     "senhaUsuario": "1234567Isa",
     "tipoUsuario": "CLIENTE",
     "idConta": "94294b43-a660-4441-a403-d85080805d51",
-    "valorEmConta": 1500.0,
-    "extratos": []
+    "valorEmConta": 2500.0,
+    "extratos": [
+      {
+        "dataTransacao": "Mar 5, 2025, 7:42:15 PM",
+        "tipoTransacao": "TRANSFERÊNCIA ENTRADA",
+        "valorTransacao": 1000.0,
+        "saldoAposTransacao": 2500.0,
+        "contaOrigem": "94294b43-a660-4441-a403-d85080805d51",
+        "contaDestino": "94294b43-a660-4441-a403-d85080805d51"
+      }
+    ]
   },
   {
     "cpfUsuario": "09090909091",
     "senhaUsuario": "1234567Isa",
     "tipoUsuario": "CLIENTE",
     "idConta": "94294b43-a660-4441-a403-d85080805d50",
-    "valorEmConta": 1500.0,
-    "extratos": []
+    "valorEmConta": 1950.0,
+    "extratos": [
+      {
+        "dataTransacao": "Mar 5, 2025, 7:16:10 PM",
+        "tipoTransacao": "TRANSFERÊNCIA ENTRADA",
+        "valorTransacao": 200.0,
+        "saldoAposTransacao": 1700.0,
+        "contaOrigem": "94294b43-a660-4441-a403-d85080805d51",
+        "contaDestino": "94294b43-a660-4441-a403-d85080805d50"
+      },
+      {
+        "dataTransacao": "Mar 5, 2025, 7:41:36 PM",
+        "tipoTransacao": "TRANSFERÊNCIA ENTRADA",
+        "valorTransacao": 250.0,
+        "saldoAposTransacao": 1950.0,
+        "contaOrigem": "94294b43-a660-4441-a403-d85080805d51",
+        "contaDestino": "94294b43-a660-4441-a403-d85080805d50"
+      }
+    ]
   },
   {
     "cpfUsuario": "09090909090",
@@ -21,6 +47,39 @@
     "tipoUsuario": "CAIXA",
     "idConta": "fd237648-24c3-4f76-939d-6a62a430ea2d",
     "valorEmConta": 118.5,
+    "extratos": [
+      {
+        "dataTransacao": "Mar 4, 2025, 5:33:51 PM",
+        "tipoTransacao": "TRANSFERÊNCIA ENTRADA",
+        "valorTransacao": 100.0,
+        "saldoAposTransacao": 117.5,
+        "contaOrigem": "94294b43-a660-4441-a403-d85080805d50",
+        "contaDestino": "fd237648-24c3-4f76-939d-6a62a430ea2d"
+      },
+      {
+        "dataTransacao": "Mar 4, 2025, 5:34:41 PM",
+        "tipoTransacao": "TRANSFERÊNCIA ENTRADA",
+        "valorTransacao": 1.0,
+        "saldoAposTransacao": 118.5,
+        "contaOrigem": "94294b43-a660-4441-a403-d85080805d50",
+        "contaDestino": "fd237648-24c3-4f76-939d-6a62a430ea2d"
+      }
+    ]
+  },
+  {
+    "cpfUsuario": "09090909093",
+    "senhaUsuario": "1234567Isa",
+    "tipoUsuario": "CLIENTE",
+    "idConta": "8c45047e-6933-4b2a-b913-617657a6f55d",
+    "valorEmConta": 0.0,
+    "extratos": []
+  },
+  {
+    "cpfUsuario": "09090909094",
+    "senhaUsuario": "1234567Isa",
+    "tipoUsuario": "CAIXA",
+    "idConta": "ab04b1fe-7051-4d4d-aa74-e84565f78258",
+    "valorEmConta": 0.0,
     "extratos": []
   }
 ]

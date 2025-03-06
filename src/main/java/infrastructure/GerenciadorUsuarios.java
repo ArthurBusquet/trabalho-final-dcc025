@@ -11,8 +11,6 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class GerenciadorUsuarios implements UsuarioRepository 
 {
@@ -26,7 +24,7 @@ public class GerenciadorUsuarios implements UsuarioRepository
         this.usuarios = carregarUsuarios();
     }
 
-    private List<Usuario> carregarUsuarios()
+    public List<Usuario> carregarUsuarios()
     {
         try (Reader reader = new FileReader(FILE_PATH)) 
         {

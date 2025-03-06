@@ -6,74 +6,67 @@ import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
-import java.nio.file.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
-public class GerenciadorSolicitacoesCredito implements SolicitacoesCreditoRepository 
+class SolicitacoesCreditoRepositoryImpl implements SolicitacoesCreditoRepository 
 {
-    private static final String ARQUIVO_JSON = "solicitacoes_credito.json";
-    private final List<SolicitacaoCredito> solicitacoes;
-
-    public GerenciadorSolicitacoesCredito() 
+    private static final String FILE_PATH = "solicitacoes_credito.json";
+    private final Gson gson = new Gson();
+    
+    @Override
+    public void salvarSolicitacao(SolicitacaoCredito solicitacao) 
     {
-        this.solicitacoes = carregarSolicitacoes();
+        List<SolicitacaoCredito> solicitacoes = getSolicitacoesNaoAprovadas();
+        solicitacoes.add(solicitacao);
+        salvarSolicitacoesNoArquivo(solicitacoes);
     }
-
-    private List<SolicitacaoCredito> carregarSolicitacoes() 
+    
+    @Override
+    public List<SolicitacaoCredito> getSolicitacoesNaoAprovadas() 
     {
-        try 
+        try (FileReader reader = new FileReader(FILE_PATH)) 
         {
-            Path path = Paths.get(ARQUIVO_JSON);
-            if (!Files.exists(path)) 
-            {
-                return new ArrayList<>();
-            }
-            
-            // le o arquivo e converte para uma lista de solicitacoes
-            String json = new String(Files.readAllBytes(path));
-            Type listType = new TypeToken<ArrayList<SolicitacaoCredito>>() {}.getType();
-            return new Gson().fromJson(json, listType);
+            Type listType = new TypeToken<List<SolicitacaoCredito>>() {}.getType();
+            List<SolicitacaoCredito> solicitacoes = gson.fromJson(reader, listType);
+            return solicitacoes != null ? solicitacoes : new ArrayList<>();
         } 
         catch (IOException e) 
-        {          
+        {
             return new ArrayList<>();
         }
     }
-
-    private void salvarSolicitacoes()
+    
+    @Override
+    public void atualizarSolicitacao(SolicitacaoCredito solicitacao)
     {
-        try (FileWriter writer = new FileWriter(ARQUIVO_JSON)) 
+        List<SolicitacaoCredito> solicitacoes = getSolicitacoesNaoAprovadas();
+        for (int i = 0; i < solicitacoes.size(); i++) 
         {
-            new Gson().toJson(solicitacoes, writer);
-        } 
-        catch (IOException e)
-        {
-        }
-    }
-
-    @Override
-    public void salvarSolicitacao(SolicitacaoCredito solicitacao) {
-        solicitacoes.add(solicitacao);
-        salvarSolicitacoes();
-    }
-
-    @Override
-    public List<SolicitacaoCredito> getSolicitacoesNaoAprovadas() {
-        return solicitacoes.stream()
-                           .filter(solicitacao -> !solicitacao.isAprovada())
-                           .collect(Collectors.toList());
-    }
-
-    @Override
-    public void atualizarSolicitacao(SolicitacaoCredito solicitacao) {
-        for (int i = 0; i < solicitacoes.size(); i++) {
-            if (solicitacoes.get(i).getUsuario().equals(solicitacao.getUsuario()) &&
-                solicitacoes.get(i).getValor() == solicitacao.getValor()) {
+            if (solicitacoes.get(i).getUsuario().getIdConta().equals(solicitacao.getUsuario().getIdConta()))
+            {
                 solicitacoes.set(i, solicitacao);
-                salvarSolicitacoes();
-                return;
+                break;
             }
+        }
+        salvarSolicitacoesNoArquivo(solicitacoes);
+    }
+    
+    @Override
+    public void removerSolicitacao(SolicitacaoCredito solicitacao)
+    {
+        List<SolicitacaoCredito> solicitacoes = getSolicitacoesNaoAprovadas();
+        solicitacoes.removeIf(s -> s.getUsuario().getIdConta().equals(solicitacao.getUsuario().getIdConta()));
+        salvarSolicitacoesNoArquivo(solicitacoes);
+    }
+    
+    private void salvarSolicitacoesNoArquivo(List<SolicitacaoCredito> solicitacoes)
+    {
+        try (FileWriter writer = new FileWriter(FILE_PATH)) 
+        {
+            gson.toJson(solicitacoes, writer);
+        } catch (IOException e) 
+        {
+            e.printStackTrace();
         }
     }
 }

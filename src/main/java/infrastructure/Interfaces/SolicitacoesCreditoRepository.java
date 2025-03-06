@@ -8,4 +8,5 @@ public interface SolicitacoesCreditoRepository
     void salvarSolicitacao(SolicitacaoCredito solicitacao);
     List<SolicitacaoCredito> getSolicitacoesNaoAprovadas();
     void atualizarSolicitacao(SolicitacaoCredito solicitacao);
+    void removerSolicitacao(SolicitacaoCredito solicitacao);
 }

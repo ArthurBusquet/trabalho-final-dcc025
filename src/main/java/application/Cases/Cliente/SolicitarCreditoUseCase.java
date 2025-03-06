@@ -27,9 +27,9 @@ public class SolicitarCreditoUseCase
         return repositorio.getSolicitacoesNaoAprovadas();
     }
 
-    public void aprovarSolicitacao(SolicitacaoCredito solicitacao, String senhaGerente) throws OperacaoInvalidaException 
+    public void aprovarSolicitacao(SolicitacaoCredito solicitacao, String senhaInserida) throws OperacaoInvalidaException 
     {
-        if (!solicitacao.getUsuario().getSenha().equals(senhaGerente))
+        if (!solicitacao.getUsuario().getSenha().equals(senhaInserida))
         {
             throw new OperacaoInvalidaException("Senha incorreta");
         }

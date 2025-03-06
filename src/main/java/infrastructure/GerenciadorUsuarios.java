@@ -24,7 +24,7 @@ public class GerenciadorUsuarios implements UsuarioRepository
         this.usuarios = carregarUsuarios();
     }
 
-    private List<Usuario> carregarUsuarios()
+    public List<Usuario> carregarUsuarios()
     {
         try (Reader reader = new FileReader(FILE_PATH)) 
         {

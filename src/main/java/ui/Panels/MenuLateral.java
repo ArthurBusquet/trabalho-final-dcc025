@@ -12,22 +12,34 @@ public abstract class MenuLateral extends JPanel {
 
     protected GerenciadorPainel gerenciadorPainel;
     protected GridBagConstraints gbc = new GridBagConstraints();
+    protected JLabel textoSaudacao;
     protected JPanel menuAcoes;
     protected GerenciadorTela controlador;
 
     public MenuLateral(GerenciadorTela controlador, GerenciadorPainel gerenciadorPainel) {
+
         this.gerenciadorPainel = gerenciadorPainel;
         this.controlador = controlador;
         setLayout(new GridBagLayout());
         setPreferredSize(new Dimension(250, 1000));
         setBackground(new Color(50, 50, 50));
 
-        gbc.insets = new Insets(200, 10, 10, 10);
+        gbc.insets = new Insets(40, 10, 10, 10);
+
+        gbc.gridy = 0;
+        gbc.gridx = 0;
+
+        textoSaudacao = new JLabel("Olá, ...");
+        textoSaudacao.setFont(new Font("Arial", Font.BOLD, 24));
+        textoSaudacao.setForeground(Color.white);
+        add(textoSaudacao, gbc);
+
+        gbc.insets = new Insets(100, 10, 10, 10);
 
         menuAcoes = new JPanel();
         menuAcoes.setLayout(new GridBagLayout());
         menuAcoes.setOpaque(false);
-        gbc.gridy = 0;
+        gbc.gridy = 1;
         gbc.weightx = 1;
         gbc.weighty = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -48,7 +60,7 @@ public abstract class MenuLateral extends JPanel {
             }
         });
 
-        gbc.gridy = 1;
+        gbc.gridy = 2;
         gbc.weighty = 1;
         gbc.anchor = GridBagConstraints.SOUTH;
         gbc.fill = GridBagConstraints.HORIZONTAL;

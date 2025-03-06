@@ -5,7 +5,24 @@
     "tipoUsuario": "CLIENTE",
     "idConta": "94294b43-a660-4441-a403-d85080805d51",
     "valorEmConta": 1500.0,
-    "extratos": []
+    "extratos": [
+      {
+        "dataTransacao": "Mar 4, 2025, 5:33:51 PM",
+        "tipoTransacao": "TRANSFERÊNCIA ENTRADA",
+        "valorTransacao": 100.0,
+        "saldoAposTransacao": 117.5,
+        "contaOrigem": "94294b43-a660-4441-a403-d85080805d50",
+        "contaDestino": "fd237648-24c3-4f76-939d-6a62a430ea2d"
+      },
+      {
+        "dataTransacao": "Mar 4, 2025, 5:34:41 PM",
+        "tipoTransacao": "TRANSFERÊNCIA ENTRADA",
+        "valorTransacao": 1.0,
+        "saldoAposTransacao": 118.5,
+        "contaOrigem": "94294b43-a660-4441-a403-d85080805d50",
+        "contaDestino": "fd237648-24c3-4f76-939d-6a62a430ea2d"
+      }
+    ]
   },
   {
     "cpfUsuario": "09090909091",
@@ -21,6 +38,23 @@
     "tipoUsuario": "CAIXA",
     "idConta": "fd237648-24c3-4f76-939d-6a62a430ea2d",
     "valorEmConta": 118.5,
-    "extratos": []
+    "extratos": [
+      {
+        "dataTransacao": "Mar 4, 2025, 5:33:51 PM",
+        "tipoTransacao": "TRANSFERÊNCIA ENTRADA",
+        "valorTransacao": 100.0,
+        "saldoAposTransacao": 117.5,
+        "contaOrigem": "94294b43-a660-4441-a403-d85080805d50",
+        "contaDestino": "fd237648-24c3-4f76-939d-6a62a430ea2d"
+      },
+      {
+        "dataTransacao": "Mar 4, 2025, 5:34:41 PM",
+        "tipoTransacao": "TRANSFERÊNCIA ENTRADA",
+        "valorTransacao": 1.0,
+        "saldoAposTransacao": 118.5,
+        "contaOrigem": "94294b43-a660-4441-a403-d85080805d50",
+        "contaDestino": "fd237648-24c3-4f76-939d-6a62a430ea2d"
+      }
+    ]
   }
 ]

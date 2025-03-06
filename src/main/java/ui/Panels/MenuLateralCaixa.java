@@ -7,6 +7,9 @@ public class MenuLateralCaixa extends MenuLateral {
 
     public MenuLateralCaixa(GerenciadorTela controlador, GerenciadorPainel gerenciadorPainel) {
         super(controlador, gerenciadorPainel);
+
+        textoSaudacao.setText("Olá, caixa!");
+        
         adicionarBotao("Atendimento de saque", "AtendimentoSaque");
         adicionarBotao("Processamento de depósitos", "ProcessamentoDepositos");
     }

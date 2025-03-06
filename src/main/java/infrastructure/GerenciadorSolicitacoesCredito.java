@@ -8,7 +8,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 
-class SolicitacoesCreditoRepositoryImpl implements SolicitacoesCreditoRepository 
+public class GerenciadorSolicitacoesCredito implements SolicitacoesCreditoRepository 
 {
     private static final String FILE_PATH = "solicitacoes_credito.json";
     private final Gson gson = new Gson();

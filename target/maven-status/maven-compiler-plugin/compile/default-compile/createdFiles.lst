@@ -10,10 +10,8 @@ application\Exceptions\DadoInseridoInvalidoException.class
 domain\Entities\Usuarios\Gerente.class
 application\Cases\Gerente\AvaliacaoCreditoUseCase.class
 utils\Centralizador.class
-infrastructure\RepositorioSolicitacoesCredito.class
 ui\Panels\PaineisAcoes\PainelAcoes.class
 application\Cases\Caixa\RealizarDepositoUseCase.class
-infrastructure\RepositorioSolicitacoesCredito$1.class
 ui\Frames\TelaLogin.class
 infrastructure\Interfaces\SolicitacoesCreditoRepository.class
 ui\Controllers\GerenciadorTela.class
@@ -70,6 +68,8 @@ ui\Panels\PainelLogin$1.class
 infrastructure\Interfaces\InvestimentosRepository.class
 domain\Exceptions\UsuarioNaoEncontradoException.class
 infrastructure\GerenciadorUsuarios.class
+infrastructure\GerenciadorSolicitacoesCredito$1.class
+infrastructure\GerenciadorSolicitacoesCredito.class
 infrastructure\GerenciadorTransferencias$1.class
 ui\Panels\PainelAutenticacao.class
 application\Cases\Caixa\AprovarTransferenciaUseCase.class

@@ -6,13 +6,14 @@ C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\mai
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Entities\Usuarios\Caixa.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Controllers\GerenciadorAutenticacao.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Controllers\GerenciadorPainel.java
-C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Frames\MenuOpcoes.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Controllers\GerenciadorTela.java
+C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\MenusLaterais\MenuLateralGerente.java
+C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PaineisAcoes\PainelAprovarTransferencia.java
+C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Models\TabelaSolicitacoesCredito.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Entities\SolicitarTransferencia.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PaineisAcoes\PainelAtendimentoSaque.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Exceptions\DadoInseridoInvalidoException.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\infrastructure\Interfaces\SolicitacoesCreditoRepository.java
-C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Controllers\MenuController.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\main\Banco.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Enum\TipoUsuarioEnum.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\Cliente\ConsultarSaldoExtratoUseCase.java
@@ -34,11 +35,12 @@ C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\mai
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Entities\Usuarios\Cliente.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Entities\AgenciaDeInvestimento.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Enum\TipoTelaAutenticacaoEnum.java
-C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PaineisAcoes\PainelRealizacaoTransferencia.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\infrastructure\GerenciadorUsuarios.java
+C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PaineisAcoes\PainelAvaliacaoCredito.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\Cliente\InvestirRendaFixaUseCase.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\infrastructure\Interfaces\InvestimentosRepository.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\EditarUsuarioUseCase.java
+C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PaineisAcoes\PainelRealizarSaque.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\utils\ValidadorCPF.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\MenusLaterais\MenuLateralCaixa.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PaineisAcoes\PainelInvestirRendaVariavel.java
@@ -49,7 +51,6 @@ C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\mai
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Entities\Usuarios\Usuario.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\MenusLaterais\MenuLateralCliente.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\Cliente\SolicitarCreditoUseCase.java
-C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Frames\MenuOpcoesCliente.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Exceptions\UsuarioNaoEncontradoException.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\Cliente\InvestirRendaVariavelUseCase.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\Gerente\CadastroRendaFixaUseCase.java
@@ -57,7 +58,6 @@ C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\mai
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PaineisAcoes\PainelSolicitacaoTransferencia.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\utils\Centralizador.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\domain\Exceptions\UsuarioJaExisteException.java
-C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PainelConfirmacaoSenha.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Frames\TelaLogin.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\application\Cases\Caixa\AprovarTransferenciaUseCase.java
 C:\Users\Arthur Busquet\Documents\NetBeansProjects\trabalho-final-dcc025\src\main\java\ui\Panels\PainelLogin.java

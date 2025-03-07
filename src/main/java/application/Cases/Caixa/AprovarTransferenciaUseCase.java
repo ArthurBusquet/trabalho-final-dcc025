@@ -45,7 +45,6 @@ public class AprovarTransferenciaUseCase {
             solicitacao.aprovar();
 
             gerenciadorTransferencias.salvarTransferencias();
-            gerenciadorTransferencias.getTransferenciasPendentes().remove(solicitacao);
             gerenciadorUsuarios.salvarUsuarios();
 
             return true;

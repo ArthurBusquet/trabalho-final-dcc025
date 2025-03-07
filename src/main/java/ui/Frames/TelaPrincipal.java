@@ -4,19 +4,23 @@ import application.Cases.Caixa.AprovarTransferenciaUseCase;
 import application.Cases.Caixa.RealizarDepositoUseCase;
 import application.Cases.Cliente.SolicitarCreditoUseCase;
 import application.Cases.Cliente.SolicitarTransferenciaUseCase;
+import application.Controllers.SessaoUsuario;
 import javax.swing.*;
 import java.awt.*;
 import domain.Enum.TipoUsuarioEnum;
+import infrastructure.GerenciadorSolicitacoesCredito;
 import infrastructure.GerenciadorTransferencias;
 import infrastructure.GerenciadorUsuarios;
 import ui.Controllers.GerenciadorTela;
 import ui.Controllers.GerenciadorPainel;
 import ui.Panels.MenusLaterais.MenuLateralCaixa;
 import ui.Panels.MenusLaterais.MenuLateralCliente;
+import ui.Panels.MenusLaterais.MenuLateralGerente;
 import ui.Panels.PaineisAcoes.PainelProcessamentoDeposito;
 import ui.Panels.PaineisAcoes.PainelInvestirRendaFixa;
 import ui.Panels.PaineisAcoes.PainelInvestirRendaVariavel;
 import ui.Panels.PaineisAcoes.PainelAprovarTransferencia;
+import ui.Panels.PaineisAcoes.PainelAvaliacaoCredito;
 import ui.Panels.PaineisAcoes.PainelRealizarSaque;
 import ui.Panels.PaineisAcoes.PainelSaldoExtrato;
 import ui.Panels.PaineisAcoes.PainelSolicitacaoCredito;
@@ -31,15 +35,16 @@ public class TelaPrincipal extends JFrame {
     private final CardLayout cardLayoutPaineisAcoes;
     private final GerenciadorPainel gerenciadorPainel;
 
-    protected GerenciadorUsuarios gerenciadorUsuarios;
-    protected GerenciadorTransferencias gerenciadorTransferencias;
+    private GerenciadorUsuarios gerenciadorUsuarios;
+    private GerenciadorTransferencias gerenciadorTransferencias;
+    private GerenciadorSolicitacoesCredito gerenciadorSolicitacoesCredito;
 
     public TelaPrincipal(GerenciadorTela controladorTela, TipoUsuarioEnum tipoUsuario) {
         this.controlador = controladorTela;
 
         gerenciadorUsuarios = new GerenciadorUsuarios();
         gerenciadorTransferencias = new GerenciadorTransferencias();
-        SolicitacoesCreditoRepositoryImpl = new SolicitacoesCreditoRepositoryImpl(); 
+        gerenciadorSolicitacoesCredito = new GerenciadorSolicitacoesCredito();
 
         setTitle("Sistema de Banco");
         setSize(1366, 768);
@@ -58,22 +63,23 @@ public class TelaPrincipal extends JFrame {
 
         painelMenusLaterais.add(new MenuLateralCliente(controladorTela, gerenciadorPainel), "MenuCliente");
         painelMenusLaterais.add(new MenuLateralCaixa(controladorTela, gerenciadorPainel), "MenuCaixa");
+        painelMenusLaterais.add(new MenuLateralGerente(controladorTela, gerenciadorPainel), "MenuGerente");
 
         SolicitarTransferenciaUseCase solicitarTransferenciaUseCase = new SolicitarTransferenciaUseCase(gerenciadorTransferencias);
-        SolicitarCreditoUseCase solicitarTransferenciaUseCase = new SolicitarCreditoUseCase(gerenciador);
+        SolicitarCreditoUseCase solicitarCreditoUseCase = new SolicitarCreditoUseCase(gerenciadorSolicitacoesCredito);
         RealizarDepositoUseCase realizarDepositoUseCase = new RealizarDepositoUseCase(gerenciadorUsuarios);
-        
 
         gerenciadorPainel.adicionarPainel("SolicitacaoTransferencia", new PainelSolicitacaoTransferencia(solicitarTransferenciaUseCase));
         gerenciadorPainel.adicionarPainel("SaldoExtrato", new PainelSaldoExtrato());
         gerenciadorPainel.adicionarPainel("InvestirRendaFixa", new PainelInvestirRendaFixa());
         gerenciadorPainel.adicionarPainel("InvestirRendaVariavel", new PainelInvestirRendaVariavel());
 
-        gerenciadorPainel.adicionarPainel("SolicitacaoCredito", new PainelSolicitacaoCredito());
-
+        gerenciadorPainel.adicionarPainel("SolicitacaoCredito", new PainelSolicitacaoCredito(solicitarCreditoUseCase));
         gerenciadorPainel.adicionarPainel("AtendimentoSaque", new PainelRealizarSaque(gerenciadorUsuarios));
         gerenciadorPainel.adicionarPainel("ProcessamentoDeposito", new PainelProcessamentoDeposito(realizarDepositoUseCase, gerenciadorUsuarios));
         gerenciadorPainel.adicionarPainel("AprovacaoTransferencia", new PainelAprovarTransferencia(gerenciadorTransferencias, gerenciadorUsuarios));
+
+        gerenciadorPainel.adicionarPainel("AvaliacaoCredito", new PainelAvaliacaoCredito(gerenciadorSolicitacoesCredito));
 
         setUsuarioLogado(tipoUsuario);
 

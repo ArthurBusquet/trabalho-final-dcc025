@@ -89,5 +89,13 @@
     "idConta": "ab04b1fe-7051-4d4d-aa74-e84565f78258",
     "valorEmConta": 0.0,
     "extratos": []
+  },
+  {
+    "cpfUsuario": "09090909099",
+    "senhaUsuario": "1234567Isa",
+    "tipoUsuario": "GERENTE",
+    "idConta": "ab04b1fe-7051-4d4d-aa74-e84565f78258",
+    "valorEmConta": 0.0,
+    "extratos": []
   }
 ]

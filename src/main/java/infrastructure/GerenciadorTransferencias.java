@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class GerenciadorTransferencias {
 
     private final String arquivoTransferencias = "transferencias.json";
-    private final List<SolicitarTransferencia> transferenciasPendentes;
+    private List<SolicitarTransferencia> transferenciasPendentes;
 
     public GerenciadorTransferencias() {
         this.transferenciasPendentes = carregarTransferenciasPendentes();
@@ -30,6 +30,13 @@ public class GerenciadorTransferencias {
         try (Writer writer = new FileWriter(arquivoTransferencias)) {
             Gson gson = new Gson();
             gson.toJson(transferenciasPendentes, writer);
+
+            List<SolicitarTransferencia> transferenciasFiltradas = transferenciasPendentes.stream()
+                    .filter(transferencia -> !transferencia.isAprovado())
+                    .collect(Collectors.toList());
+            transferenciasPendentes = transferenciasFiltradas;
+            
+
         } catch (IOException e) {
         }
     }

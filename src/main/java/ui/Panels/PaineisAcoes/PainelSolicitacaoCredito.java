@@ -1,13 +1,9 @@
 package ui.Panels.PaineisAcoes;
 
-import application.Cases.Caixa.SolicitarCreditoUseCase;
 import application.Cases.Cliente.SolicitarCreditoUseCase;
 import application.Controllers.SessaoUsuario;
 import application.Exceptions.DadoInseridoInvalidoException;
-import application.Exceptions.OperacaoInvalidaException;
-import domain.Entities.SolicitacaoCredito;
 import domain.Entities.Usuarios.Usuario;
-import infrastructure.GerenciadorUsuarios;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,11 +17,10 @@ public class PainelSolicitacaoCredito extends PainelAcoes {
     private JPasswordField campoSenha;
     private JButton botaoSolicitar;
     private SolicitarCreditoUseCase solicitarCreditoUseCase;
-    private final SessaoUsuario sessaoUsuario;
 
-    public PainelSolicitacaoCredito(SessaoUsuario sessaoUsuario) {
-        this.sessaoUsuario = sessaoUsuario;
-        this.solicitarCreditoUseCase = new SolicitarCreditoUseCase(gerenciadorUsuarios);
+    public PainelSolicitacaoCredito(SolicitarCreditoUseCase solicitarCreditoUseCase) {
+
+        this.solicitarCreditoUseCase = solicitarCreditoUseCase;
         inicializar();
     }
 
@@ -38,7 +33,7 @@ public class PainelSolicitacaoCredito extends PainelAcoes {
         gbc.gridy = 0;
         add(new JLabel("Tipo de Crédito:"), gbc);
 
-        String[] tiposCredito = {"Empréstimo Pessoal", "Financiamento Imobiliário", "Financiamento Veicular"};
+        String[] tiposCredito = {"EMPRESTIMO", "FINANCIAMENTO"};
         comboTipoCredito = new JComboBox<>(tiposCredito);
         comboTipoCredito.setPreferredSize(new Dimension(200, 30));
         gbc.gridx = 1;
@@ -97,14 +92,12 @@ public class PainelSolicitacaoCredito extends PainelAcoes {
             return;
         }
 
-        Usuario usuario = sessaoUsuario.getUsuarioLogado();
+        Usuario usuario = SessaoUsuario.getInstancia().getUsuarioLogado();
 
         if (!usuario.getSenha().equals(senha)) {
             JOptionPane.showMessageDialog(this, "Senha incorreta.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-
 
         try {
             solicitarCreditoUseCase.solicitarCredito(usuario, valorSolicitado, tipoCredito);

@@ -16,14 +16,16 @@ import java.awt.event.ActionListener;
 
 public class PainelProcessamentoDeposito extends PainelAcoes {
 
-    private JTextField campoNumeroConta;
+    private JTextField campoCpf;
     private JTextField campoValorDeposito;
     private JButton botaoConfirmar;
     private final RealizarDepositoUseCase realizarDepositoUseCase;
     private GridBagConstraints gbc;
+    private GerenciadorUsuarios gerenciadorUsuarios;
 
-    public PainelProcessamentoDeposito(RealizarDepositoUseCase realizarDepositoUseCase) {
+    public PainelProcessamentoDeposito(RealizarDepositoUseCase realizarDepositoUseCase, GerenciadorUsuarios gerenciadorUsuarios) {
         super();
+        this.gerenciadorUsuarios = gerenciadorUsuarios;
         this.realizarDepositoUseCase = realizarDepositoUseCase;
         inicializar();
     }
@@ -44,24 +46,27 @@ public class PainelProcessamentoDeposito extends PainelAcoes {
 
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.LINE_END;
-        add(new JLabel("Número da Conta:"), gbc);
+        gbc.gridwidth = 1;
 
-        campoNumeroConta = new JTextField(15);
+        add(new JLabel("CPF do cliente:"), gbc);
+
+        campoCpf = new JTextField(20);
         gbc.gridx = 1;
         gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.LINE_START;
-        add(campoNumeroConta, gbc);
+        campoCpf.setPreferredSize(new Dimension(400, 30));
+        gbc.gridwidth = 2;
+        add(campoCpf, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 2;
-        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.gridwidth = 1;
         add(new JLabel("Valor do Depósito (R$):"), gbc);
 
-        campoValorDeposito = new JTextField(15);
+        campoValorDeposito = new JTextField(20);
         gbc.gridx = 1;
         gbc.gridy = 2;
-        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.gridwidth = 2;
+        campoValorDeposito.setPreferredSize(new Dimension(400, 30));
         add(campoValorDeposito, gbc);
 
         botaoConfirmar = new JButton("Confirmar Depósito");
@@ -85,25 +90,25 @@ public class PainelProcessamentoDeposito extends PainelAcoes {
 
     private void processarDeposito() {
         try {
-            String numeroConta = campoNumeroConta.getText();
+            String cpf = campoCpf.getText();
             String valorStr = campoValorDeposito.getText();
 
-            if (numeroConta.isEmpty() || valorStr.isEmpty()) {
+            if (cpf.isEmpty() || valorStr.isEmpty()) {
                 throw new IllegalArgumentException("Preencha todos os campos!");
             }
 
             double valorDeposito = Double.parseDouble(valorStr);
 
-            Usuario usuario = SessaoUsuario.getInstancia().getUsuarioLogado();
-            if (usuario == null || usuario.getTipoUsuario() != TipoUsuarioEnum.CAIXA) {
-                throw new OperacaoInvalidaException("Conta inválida ou usuário não logado.");
+            Usuario usuario = gerenciadorUsuarios.buscarUsuarioPorCpf(cpf);
+            if (usuario == null || usuario.getTipoUsuario() != TipoUsuarioEnum.CLIENTE) {
+                throw new OperacaoInvalidaException("Conta inválida");
             }
 
             realizarDepositoUseCase.realizarDeposito(usuario, valorDeposito);
 
             JOptionPane.showMessageDialog(this, "Depósito realizado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
-            campoNumeroConta.setText("");
+            campoCpf.setText("");
             campoValorDeposito.setText("");
 
         } catch (NumberFormatException e) {

@@ -4,15 +4,15 @@ import ui.Panels.MenusLaterais.MenuLateral;
 import ui.Controllers.GerenciadorPainel;
 import ui.Controllers.GerenciadorTela;
 
-public class MenuLateralCaixa extends MenuLateral {
+public class MenuLateralGerente extends MenuLateral {
 
-    public MenuLateralCaixa(GerenciadorTela controlador, GerenciadorPainel gerenciadorPainel) {
+    public MenuLateralGerente(GerenciadorTela controlador, GerenciadorPainel gerenciadorPainel) {
         super(controlador, gerenciadorPainel);
 
-        textoSaudacao.setText("Olá, caixa!");
-        
+        textoSaudacao.setText("Olá, gerente!");
+
         adicionarBotao("Atendimento de saque", "AtendimentoSaque");
-        adicionarBotao("Processamento de depósitos", "ProcessamentoDeposito");
         adicionarBotao("Aprovar Transferencias", "AprovacaoTransferencia");
+        adicionarBotao("Avaliar Solicitações de Crédito", "AvaliacaoCredito");
     }
 }

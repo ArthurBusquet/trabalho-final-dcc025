@@ -24,7 +24,16 @@ public abstract class PainelAutenticacao extends JPanel implements ActionListene
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
+
         gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        JLabel titulo = new JLabel("Sistema de Banco");
+        titulo.setFont(new Font("Arial", Font.BOLD, 32));
+
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        add(titulo, gbc);
 
         tituloSenha = new JLabel("Senha:");
         gbc.gridx = 0;

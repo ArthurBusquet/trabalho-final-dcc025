@@ -4,14 +4,17 @@ import domain.Entities.Usuarios.Usuario;
 import java.util.Date;
 
 public class SolicitacaoCredito {
+
     private final Usuario usuario;
     private final double valor;
+    private final String tipoCredito;
     private final Date dataSolicitacao;
     private boolean aprovada;
 
-    public SolicitacaoCredito(Usuario usuario, double valor) {
+    public SolicitacaoCredito(Usuario usuario, double valor, String tipoCredito) {
         this.usuario = usuario;
         this.valor = valor;
+        this.tipoCredito = tipoCredito;
         this.dataSolicitacao = new Date();
         this.aprovada = false;
     }
@@ -22,6 +25,10 @@ public class SolicitacaoCredito {
 
     public double getValor() {
         return valor;
+    }
+
+    public String getTipoCredito() {
+        return tipoCredito;
     }
 
     public Date getDataSolicitacao() {

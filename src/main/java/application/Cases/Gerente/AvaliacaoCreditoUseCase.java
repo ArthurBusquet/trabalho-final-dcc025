@@ -3,6 +3,7 @@ package application.Cases.Gerente;
 import application.Exceptions.OperacaoInvalidaException;
 import domain.Entities.SolicitacaoCredito;
 import domain.Entities.Usuarios.Gerente;
+import domain.Entities.Usuarios.Usuario;
 import infrastructure.Interfaces.SolicitacoesCreditoRepository;
 
 public class AvaliacaoCreditoUseCase 
@@ -14,10 +15,10 @@ public class AvaliacaoCreditoUseCase
         this.solicitacoesRepository = solicitacoesRepository;
     }
 
-    public void avaliarCredito(Gerente gerente, String senhaGerente, SolicitacaoCredito solicitacao, boolean aprovar) 
+    public void avaliarCredito(Usuario usuario, String senhaGerente, SolicitacaoCredito solicitacao, boolean aprovar) 
             throws OperacaoInvalidaException
     {
-        if (!gerente.getSenha().equals(senhaGerente)) 
+        if (!usuario.getSenha().equals(senhaGerente)) 
         {
             throw new OperacaoInvalidaException("Senha do gerente incorreta.");
         }
@@ -25,6 +26,7 @@ public class AvaliacaoCreditoUseCase
         {
             solicitacao.aprovar();
             solicitacoesRepository.atualizarSolicitacao(solicitacao);
+            
         } 
         else 
         {

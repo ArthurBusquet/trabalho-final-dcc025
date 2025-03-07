@@ -30,7 +30,6 @@ public class GerenciadorTransferencias {
         try (Writer writer = new FileWriter(arquivoTransferencias)) {
             Gson gson = new Gson();
             gson.toJson(transferenciasPendentes, writer);
-            transferenciasPendentes = carregarTransferencias();
         } catch (IOException e) {
         }
     }

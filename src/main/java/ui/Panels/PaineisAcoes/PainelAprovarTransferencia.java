@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import ui.Models.TabelaTransferencias;
 
-public class PainelRealizacaoTransferencia extends PainelAcoes {
+public class PainelAprovarTransferencia extends PainelAcoes {
 
     private JTable tabelaTransferencias;
     private JPasswordField campoSenha;
@@ -26,7 +26,7 @@ public class PainelRealizacaoTransferencia extends PainelAcoes {
     private GerenciadorUsuarios gerenciadorUsuarios;
     private AprovarTransferenciaUseCase aprovarTransferenciaUseCase;
 
-    public PainelRealizacaoTransferencia(GerenciadorTransferencias gerenciadorTransferencias, GerenciadorUsuarios gerenciadorUsuarios) {
+    public PainelAprovarTransferencia(GerenciadorTransferencias gerenciadorTransferencias, GerenciadorUsuarios gerenciadorUsuarios) {
         super();
         this.gerenciadorTransferencias = gerenciadorTransferencias;
         this.gerenciadorUsuarios = gerenciadorUsuarios;

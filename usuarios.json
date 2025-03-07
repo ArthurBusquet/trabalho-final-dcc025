@@ -71,8 +71,16 @@
     "senhaUsuario": "1234567Isa",
     "tipoUsuario": "CLIENTE",
     "idConta": "8c45047e-6933-4b2a-b913-617657a6f55d",
-    "valorEmConta": 0.0,
-    "extratos": []
+    "valorEmConta": 10.0,
+    "extratos": [
+      {
+        "dataTransacao": "Mar 6, 2025, 8:48:57 PM",
+        "tipoTransacao": "Depósito",
+        "valorTransacao": 10.0,
+        "saldoAposTransacao": 10.0,
+        "contaOrigem": "8c45047e-6933-4b2a-b913-617657a6f55d"
+      }
+    ]
   },
   {
     "cpfUsuario": "09090909094",

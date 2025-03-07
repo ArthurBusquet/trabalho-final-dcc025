@@ -79,6 +79,8 @@ infrastructure\Interfaces\InvestimentosRepository.class
 domain\Exceptions\UsuarioNaoEncontradoException.class
 infrastructure\GerenciadorUsuarios.class
 ui\Panels\PaineisAcoes\PainelAprovarTransferencia$1.class
+infrastructure\GerenciadorSolicitacoesCredito$1.class
+infrastructure\GerenciadorSolicitacoesCredito.class
 infrastructure\GerenciadorTransferencias$1.class
 ui\Panels\PainelAutenticacao.class
 application\Cases\Caixa\AprovarTransferenciaUseCase.class

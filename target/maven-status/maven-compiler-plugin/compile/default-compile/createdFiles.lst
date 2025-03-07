@@ -30,7 +30,6 @@ application\Exceptions\OperacaoInvalidaException.class
 ui\Models\TabelaSolicitacoesCredito.class
 ui\Panels\PaineisAcoes\PainelInvestirRendaFixa.class
 domain\Exceptions\UsuarioJaExisteException.class
-ui\Enum\TipoTelaAutenticacaoEnum.class
 application\Cases\ListarUsuariosUseCase.class
 domain\Entities\SolicitacaoCredito.class
 ui\Panels\PaineisAcoes\PainelInvestirRendaVariavel.class
